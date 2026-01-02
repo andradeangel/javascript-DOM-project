@@ -1,47 +1,85 @@
-body {
+:root {
+    --primaryColor: #DADADA;
+    --secondaryColor: #C2C2C2;
+    --thirdColor: #919191;
+    --fourthColor: #797979;
+    --fifthColor: #494949;
+    --sixthColor: #303030;
+    --textColor: #F2F2F2;
+}
+
+* {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    height: 100vh;
+    font-family: "Inconsolata", Arial, sans-serif;
+    color: var(--textColor);
+}
+
+/* ESTILOS DE CABECERA */
+header {
+    background: var(--sixthColor);
+}
+
+.navbar {
     display: flex;
-    justify-content: center;
     align-items: center;
-    background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1);
-    animation: gradientBG 15s ease infinite;
-    font-family: Arial, sans-serif;
+    justify-content: space-between;
 }
 
-@keyframes gradientBG {
-    0% {
-        background-position: 0% 50%;
-    }
-
-    50% {
-        background-position: 100% 50%;
-    }
-
-    100% {
-        background-position: 0% 50%;
-    }
+.logo {
+    font-size: 1rem;
 }
 
-.container {
-    text-align: center;
+.logo a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    margin: 15px;
 }
 
-img {
-    max-width: 300px;
-    height: auto;
-    border-radius: 15px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
-    transition: transform 0.3s ease;
+.logo a>img {
+    width: 50px;
+    margin-right: 10px;
 }
 
-img:hover {
-    transform: scale(1.05);
+.logo a>h2 {
+    font-size: 1.5rem;
+    transition: all 0.3s ease;
 }
 
-h1 {
-    color: white;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-    margin-top: 20px;
+.logo a>h2:hover {
+    color: var(--thirdColor);
+    transition: all 0.3s ease;
+    text-shadow: 0 0 10px var(--sixthColor);
+
+}
+
+.menu-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    margin: 25px;
+}
+
+.menu-btn span:hover {
+    color: var(--fourthColor);
+    transform: scale(1.2);
+    text-shadow: 0 0 10px var(--primaryColor);
+    transition: all 0.3s ease;
+}
+
+.menu-btn span {
+    color: var(--primaryColor);
+    font-size: 2rem;
+    transition: all 0.3s ease;
+}
+
+main {
+    background: black;
+    height: 100vh;
+}
+
+footer {
+    background: var(--fourthColor);
 }
