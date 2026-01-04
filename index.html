@@ -36,10 +36,24 @@
         </a>
       </div>
       <div class="menu">
-        <button class="menu-btn">
+        <button class="btn-101">
           <span class="material-symbols-outlined">
             menu
           </span>
+          <svg>
+            <defs>
+              <filter id="glow">
+                <fegaussianblur result="coloredBlur" stddeviation="5"></fegaussianblur>
+                <femerge>
+                  <femergenode in="coloredBlur"></femergenode>
+                  <femergenode in="coloredBlur"></femergenode>
+                  <femergenode in="coloredBlur"></femergenode>
+                  <femergenode in="SourceGraphic"></femergenode>
+                </femerge>
+              </filter>
+            </defs>
+            <rect />
+          </svg>
         </button>
       </div>
     </nav>

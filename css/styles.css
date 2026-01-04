@@ -6,6 +6,7 @@
     --fifthColor: #494949;
     --sixthColor: #303030;
     --textColor: #F2F2F2;
+    --radio: .1rem;
 }
 
 * {
@@ -45,35 +46,131 @@ header {
 
 .logo a>h2 {
     font-size: 1.5rem;
-    transition: all 0.3s ease;
+    transition: all 0.1s ease;
 }
 
 .logo a>h2:hover {
     color: var(--thirdColor);
-    transition: all 0.3s ease;
-    text-shadow: 0 0 10px var(--sixthColor);
-
+    transition: all 0.1s ease;
 }
 
-.menu-btn {
-    background: none;
+/* ESTILOS DEL BOTON */
+.btn-101 {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: .5rem 1rem;
+    margin-right: 1rem;
+
+    background: rgba(255, 255, 255, 0.1);
     border: none;
+    border-radius: var(--radio);
+    color: var(--textColor);
+
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 500;
+    text-transform: uppercase;
+
     cursor: pointer;
-    margin: 25px;
+    backdrop-filter: blur(10px);
+    transition: background 0.3s ease;
 }
 
-.menu-btn span:hover {
-    color: var(--fourthColor);
-    transform: scale(1.2);
-    text-shadow: 0 0 10px var(--primaryColor);
-    transition: all 0.3s ease;
+.btn-101:disabled {
+    cursor: default;
+    opacity: 0.5;
 }
 
-.menu-btn span {
-    color: var(--primaryColor);
-    font-size: 2rem;
-    transition: all 0.3s ease;
+.btn-101:hover {
+    background: rgba(255, 255, 255, 0.2);
+    filter: brightness(1.2);
 }
+
+.btn-101:active {
+    transform: scale(0.98);
+}
+
+.btn-101 svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    filter: url(#glow);
+}
+
+.btn-101 rect {
+    fill: none;
+    stroke: var(--primaryColor);
+    stroke-width: 3px;
+    stroke-linejoin: round;
+    rx: var(--radio);
+    width: 100%;
+    height: 100%;
+    stroke-dasharray: 50% 150%;
+    stroke-dashoffset: 0;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    animation: snake 2s linear infinite;
+    animation-play-state: paused;
+}
+
+.btn-101:hover rect {
+    opacity: 1;
+    animation-play-state: running;
+}
+
+@keyframes snake {
+    to {
+        stroke-dashoffset: -200%;
+    }
+}
+
+/* FIN DE ESTILOS DEL BOTON */
+
+/* ESTILOS DE TEXTO NEÓN ANIMADO */
+.text-neon-container {
+    position: relative;
+    display: inline-block;
+}
+
+.text-neon-container svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: visible;
+}
+
+.text-neon-container svg text {
+    fill: transparent;
+    stroke: var(--primaryColor);
+    stroke-width: 2px;
+    stroke-linejoin: round;
+    stroke-dasharray: 50% 150%;
+    stroke-dashoffset: 0;
+
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    animation: snake 3s linear infinite;
+    animation-play-state: paused;
+    filter: url(#glow);
+}
+
+.text-neon-container:hover svg text {
+    opacity: 1;
+    animation-play-state: running;
+}
+
+/* FIN DE ESTILOS DE TEXTO NEÓN ANIMADO */
+
+
 
 main {
     background: black;
