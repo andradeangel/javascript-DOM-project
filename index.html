@@ -29,32 +29,34 @@
   <!-- CABECERA -->
   <header>
     <nav class="navbar">
-      <div class="logo">
-        <a href="#">
-          <img src="assets/img/logo-fondo.png" alt="Logo Andrade Ángel" title="Logo Andrade Ángel" name="logo">
-          <h2>Andrade Ángel</h2>
-        </a>
-      </div>
-      <div class="menu">
-        <button class="btn-101">
-          <span class="material-symbols-outlined">
-            menu
-          </span>
-          <svg>
-            <defs>
-              <filter id="glow">
-                <fegaussianblur result="coloredBlur" stddeviation="5"></fegaussianblur>
-                <femerge>
-                  <femergenode in="coloredBlur"></femergenode>
-                  <femergenode in="coloredBlur"></femergenode>
-                  <femergenode in="coloredBlur"></femergenode>
-                  <femergenode in="SourceGraphic"></femergenode>
-                </femerge>
-              </filter>
-            </defs>
-            <rect />
-          </svg>
-        </button>
+      <div class="navbar-container">
+        <div class="logo">
+          <a href="#">
+            <img src="assets/img/logo-fondo.png" alt="Logo Andrade Ángel" title="Logo Andrade Ángel" name="logo">
+            <h2>Andrade Ángel</h2>
+          </a>
+        </div>
+        <div class="menu">
+          <button class="btn-101">
+            <span class="material-symbols-outlined">
+              menu
+            </span>
+            <svg>
+              <defs>
+                <filter id="glow">
+                  <fegaussianblur result="coloredBlur" stddeviation="5"></fegaussianblur>
+                  <femerge>
+                    <femergenode in="coloredBlur"></femergenode>
+                    <femergenode in="coloredBlur"></femergenode>
+                    <femergenode in="coloredBlur"></femergenode>
+                    <femergenode in="SourceGraphic"></femergenode>
+                  </femerge>
+                </filter>
+              </defs>
+              <rect />
+            </svg>
+          </button>
+        </div>
       </div>
     </nav>
   </header>
@@ -62,8 +64,15 @@
   <!-- CONTENIDO PRINCIPAL -->
   <main>
     <section>
+      <div class="portada">
+        <picture>
+          <img src="assets/img/portada.jpg" alt="Foto de portada" title="Foto de portada" name="portada">
+        </picture>
+      </div>
       <h2>Biografía</h2>
-      <p>Andrade Ángel es un desarrollador web con experiencia en JavaScript.</p>
+      <p>Anlorem dlorem ipsum dolor sit amet consectetur adipisicing elit. Vel, quo. Ea aspernatur nostrum, magnam
+        fugiat laborum illum voluptatum harum molestias officia consequatur nemo perferendis temporibus assumenda
+        quibusdam quod, aperiam vitae?</p>
     </section>
   </main>
 
