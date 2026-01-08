@@ -28,17 +28,17 @@
 <body>
   <!-- CABECERA -->
   <header>
-    <nav class="navbar">
+    <nav class="navbar" id="navbar">
       <div class="navbar-container">
         <div class="logo">
           <a href="#">
             <img src="assets/img/logo-fondo.png" alt="Logo Andrade Ángel" title="Logo Andrade Ángel" name="logo">
-            <h2>Andrade Ángel</h2>
+            <h2 class="logoText" id="logoText">Andrade Ángel</h2>
           </a>
         </div>
         <div class="menu">
-          <button class="btn-101">
-            <span class="material-symbols-outlined">
+          <button class="btn-101" onclick="menuSwitch()">
+            <span class="material-symbols-outlined" id="icon">
               menu
             </span>
             <svg>
@@ -59,46 +59,27 @@
         </div>
       </div>
     </nav>
-    <div class="options">
+    <div class="options" id="options">
       <div class="options-container">
-        <button class="btn-101">
-          <span class="material-symbols-outlined">
-            close
-          </span>
-          <svg>
-            <defs>
-              <filter id="glow">
-                <fegaussianblur result="coloredBlur" stddeviation="5"></fegaussianblur>
-                <femerge>
-                  <femergenode in="coloredBlur"></femergenode>
-                  <femergenode in="coloredBlur"></femergenode>
-                  <femergenode in="coloredBlur"></femergenode>
-                  <femergenode in="SourceGraphic"></femergenode>
-                </femerge>
-              </filter>
-            </defs>
-            <rect />
-          </svg>
-        </button>
         <ul>
           <li>
             <a href="#">
-              <h2>Home</h2>
+              <h2 class="hover-underline">Home</h2>
             </a>
           </li>
           <li>
             <a href="#">
-              <h2>Home</h2>
+              <h2 class="hover-underline">Home</h2>
             </a>
           </li>
           <li>
             <a href="#">
-              <h2>Home</h2>
+              <h2 class="hover-underline">Home</h2>
             </a>
           </li>
           <li>
             <a href="#">
-              <h2>Home</h2>
+              <h2 class="hover-underline">Home</h2>
             </a>
           </li>
         </ul>

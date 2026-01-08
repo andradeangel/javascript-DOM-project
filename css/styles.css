@@ -46,10 +46,10 @@ html {
     position: fixed;
     width: 100%;
     top: 0;
-    z-index: 10;
+    z-index: 100;
 
     /* Transición suave para efectos hover */
-    transition: all 0.3s ease;
+    transition: all 2s ease;
 }
 
 .navbar-container {
@@ -65,6 +65,16 @@ html {
     display: flex;
     align-items: center;
     justify-content: space-between;
+}
+
+.navbar.navbarStyle {
+    border-bottom: none;
+    box-shadow: none;
+    transition: all .1s ease;
+}
+
+.logoText.navbarOpen {
+    color: var(--sixthColor);
 }
 
 .logo {
@@ -87,15 +97,25 @@ html {
 
 .logo a>h2 {
     font-size: 1.5rem;
-    transition: all 0.1s ease;
+    transition: all 1s ease;
 }
 
 .logo a>h2:hover {
-    color: var(--thirdColor);
+    color: var(--fourthColor);
     transition: all 0.1s ease;
 }
 
 /* ESTILOS DEL BOTON */
+.btn-101.btnStyle {
+    background-color: var(--fifthColor);
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.37), -3px -3px 5px rgba(0, 0, 0, 0.37);
+}
+
+.btn-101.btnStyle:hover {
+    background-color: var(--fifthColor);
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.37), -3px -3px 5px rgba(0, 0, 0, 0.37);
+}
+
 .btn-101 {
     position: relative;
     display: flex;
@@ -176,12 +196,19 @@ html {
 /* ESTILOS DE OPCIONES */
 .options {
     background-color: var(--primaryColor);
-    position: absolute;
-    height: 100%;
+    position: fixed;
+    top: -100%;
+    height: 100vh;
     width: 100%;
     z-index: 10;
     text-align: center;
     align-content: center;
+    opacity: .9;
+    transition: top 0.5s ease;
+}
+
+.options.show {
+    top: 0;
 }
 
 .options-container ul li a {
@@ -195,11 +222,43 @@ html {
     right: 10%;
     top: 10%;
     background-color: var(--sixthColor);
-    ox-shadow: 3px 3px 5px rgba(0, 0, 0, 0.37), -3px -3px 5px rgba(0, 0, 0, 0.37);
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.37), -3px -3px 5px rgba(0, 0, 0, 0.37);
 }
 
 .options-container button:hover {
     background-color: var(--fifthColor);
+}
+
+.hover-underline {
+    font-size: 3rem;
+    color: var(--sixthColor);
+    position: relative;
+    display: inline-block;
+    margin: 1rem 0;
+}
+
+.hover-underline::after,
+.hover-underline::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(to right, var(--sixthColor), var(--secondaryColor));
+    bottom: -5px;
+    left: 0;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.5s ease-out;
+}
+
+.hover-underline::before {
+    top: -5px;
+    transform-origin: left;
+}
+
+.hover-underline:hover::after,
+.hover-underline:hover::before {
+    transform: scaleX(1);
 }
 
 /* FIN DE ESTILOS DE OPCIONES */
