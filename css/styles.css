@@ -17,8 +17,12 @@
 }
 
 html {
+    background-color: var(--primaryColor);
+    overscroll-behavior-y: none;
+    min-height: 100%;
     scroll-behavior: smooth;
     color: var(--textColor);
+    scrollbar-width: thin;
 }
 
 /* ESTILOS DE CABECERA */
