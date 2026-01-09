@@ -1,3 +1,5 @@
+const soundMenu = new Audio("./assets/audio/swooshMenu.mp3");
+
 function menuSwitch() {
     const switchMenu = document.getElementById("options");
     const logoText = document.getElementById("logoText");
@@ -12,7 +14,9 @@ function menuSwitch() {
 
     if (switchMenu.classList.contains("show")) {
         document.getElementById("icon").innerHTML = "close";
+        soundMenu.play();
     } else {
         document.getElementById("icon").innerHTML = "menu";
+        soundMenu.play();
     }
 }
