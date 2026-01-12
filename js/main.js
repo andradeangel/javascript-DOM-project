@@ -11,7 +11,6 @@ function menuSwitch() {
     navbar.classList.toggle("navbarStyle");
     btn.classList.toggle("btnStyle");
 
-
     if (switchMenu.classList.contains("show")) {
         document.getElementById("icon").innerHTML = "close";
         soundMenu.play();
