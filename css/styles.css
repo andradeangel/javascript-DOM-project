@@ -200,11 +200,15 @@ html {
     text-align: center;
     align-content: center;
     opacity: .9;
-    transition: top 1s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+    visibility: hidden;
+    transition: top 1s cubic-bezier(0.68, -0.55, 0.27, 1.55), visibility 0s linear 1s;
 }
 
 .options.show {
+    visibility: visible;
     top: 0;
+    transition: top 1s cubic-bezier(0.68, -0.55, 0.27, 1.55),
+        visibility 0s linear 0s;
 }
 
 .options-container ul li a {
@@ -285,7 +289,6 @@ html {
 
 /* FIN DE ESTILOS DE OPCIONES */
 
-
 /* FIN DE ESTILOS DE CABECERA */
 
 
@@ -293,7 +296,13 @@ html {
 /* ESTILOS DE CONTENIDO PRINCIPAL */
 
 main {
-    background: black;
+    height: 100vh;
+    background-color: black;
+}
+
+.portada {
+    width: clamp(200px, 100%, 900px);
+    margin: auto;
     height: 100vh;
 }
 
