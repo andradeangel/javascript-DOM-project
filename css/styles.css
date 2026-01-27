@@ -12,8 +12,6 @@
 
 * {
     -webkit-tap-highlight-color: transparent;
-    /* Opcional: Evita que el usuario seleccione el texto por error 
-       si solo quieres que el texto sea "clicable" pero no "copiable" */
     -webkit-touch-callout: none;
     user-select: none;
     box-sizing: border-box;
@@ -33,37 +31,25 @@ html {
 /* ESTILOS DE CABECERA */
 
 .navbar {
-    /* Fondo semitransparente para el efecto de vidrio */
     background: rgba(255, 255, 255, 0.01);
-
     /* Efecto de desenfoque del fondo (glassmorphism) */
     backdrop-filter: blur(7px) saturate(180%);
     -webkit-backdrop-filter: blur(7px) saturate(180%);
-
-    /* Sombra suave para dar profundidad */
     box-shadow:
         0 8px 32px 0 rgba(0, 0, 0, 0.37),
         inset 0 1px 0 0 rgba(255, 255, 255, 0.1);
-
     position: fixed;
     width: 100%;
     top: 0;
     z-index: 100;
-
-    /* Transición suave para efectos hover */
     transition: all 1s ease;
 }
 
 .navbar-container {
-    /* Limitar el ancho máximo del contenido */
     max-width: 1200px;
     width: 100%;
     margin: 0 auto;
-
-    /* Padding responsivo en los lados */
     padding: 0.5rem clamp(1rem, 3vw, 2rem);
-
-    /* Flex para distribuir logo y menú */
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -305,7 +291,6 @@ main {
     background-color: black;
 }
 
-/* Contenedor de la sección de portada - para posicionar el canvas */
 .portada-section {
     position: relative;
     width: 100%;
@@ -318,9 +303,7 @@ main {
     margin: auto;
     height: 100dvh;
     position: relative;
-    /* Necesario para posicionar la imagen */
     overflow: hidden;
-    /* Evitar scroll si la imagen se desborda */
 }
 
 .portada img {
@@ -330,20 +313,96 @@ main {
     filter: saturate(0);
 }
 
-/* Canvas del efecto Matrix */
 .matrix-effect {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: 2;
-    /* Por encima de la imagen */
+    z-index: 1;
     pointer-events: auto;
-    /* Permitir interacción con el mouse para el efecto magneto */
     cursor: none;
-    /* Ocultar el cursor para efecto más inmersivo (opcional) */
 }
+
+.hero-card1,
+.hero-card2 {
+    position: absolute;
+    z-index: 5;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: var(--radio);
+    padding: 2rem;
+    pointer-events: auto;
+    cursor: default;
+    transition: all 0.3s ease;
+    max-width: 400px;
+    bottom: 10%;
+}
+
+.hero-card1:hover,
+.hero-card2:hover {
+    transform: translateY(-5px);
+}
+
+.hero-card1 {
+    left: 5%;
+}
+
+.hero-card2 {
+    right: 5%;
+}
+
+.hero-card1 h1,
+.hero-card2 h1 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: var(--starColor);
+    font-weight: 700;
+}
+
+.hero-card1 p,
+.hero-card2 p {
+    font-size: 1.1rem;
+    color: var(--textColor);
+    line-height: 1.6;
+}
+
+@media (max-width: 900px) {
+
+    .hero-card1,
+    .hero-card2 {
+        max-width: 90%;
+        padding: 1rem;
+    }
+
+    .hero-card1 {
+        bottom: 24%;
+        left: 5%;
+    }
+
+    .hero-card2 {
+        bottom: 2%;
+        right: 5%;
+    }
+
+    .hero-card1 h1,
+    .hero-card2 h1 {
+        font-size: 1rem;
+    }
+
+    .hero-card1 p,
+    .hero-card2 p {
+        font-size: 1.1rem;
+    }
+}
+
+
+
+/* FIN DE ESTILOS DE CONTENIDO PRINCIPAL */
+
+
+/* ESTILOS DE FOOTER */
 
 footer {
     background: var(--fourthColor);
