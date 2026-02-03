@@ -388,7 +388,7 @@ main {
     }
 
     .hero-card-container {
-        height: 30%;
+        height: 20%;
         padding: 1.2;
     }
 
@@ -396,23 +396,24 @@ main {
     .hero-card2 {
         max-width: 40%;
         padding: 1rem;
+        height: 100%;
     }
 
     .hero-card1 h1,
     .hero-card2 h1 {
-        font-size: .9rem;
+        font-size: 1rem;
     }
 
     .hero-card1 p,
     .hero-card2 p {
-        font-size: .8rem;
+        font-size: .9rem;
     }
 }
 
 @media (max-width: 600px) {
 
     .hero-card-container {
-        height: 30%;
+        height: 35%;
         padding: 1.2;
     }
 
@@ -423,15 +424,15 @@ main {
     }
 
     .hero-card1 {
-        bottom: 140px;
+        bottom: 160px;
         left: 5%;
-        height: 60%;
+        height: 45%;
     }
 
     .hero-card2 {
         bottom: 10px;
         right: 5%;
-        height: 60%;
+        height: 45%;
     }
 
     .hero-card1 h1,
@@ -442,7 +443,7 @@ main {
 
     .hero-card1 p,
     .hero-card2 p {
-        font-size: .7rem;
+        font-size: .8rem;
     }
 }
 
