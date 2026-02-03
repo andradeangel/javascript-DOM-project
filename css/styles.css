@@ -344,7 +344,7 @@ main {
     border-radius: var(--radio);
     padding: 2rem;
     pointer-events: auto;
-    cursor: default;
+    cursor: pointer;
     transition: all 0.3s ease;
     max-width: 400px;
     bottom: 10%;
@@ -367,7 +367,7 @@ main {
 
 .hero-card1 h1,
 .hero-card2 h1 {
-    font-size: 2rem;
+    font-size: 1.5rem;
     margin-bottom: 1rem;
     color: var(--starColor);
     font-weight: 700;
@@ -384,6 +384,17 @@ main {
     .portada img {
         object-fit: cover;
     }
+
+    .hero-card1,
+    .hero-card2 {
+        max-width: 40%;
+        padding: 1rem;
+    }
+
+    .hero-card1 h1,
+    .hero-card2 h1 {
+        font-size: 1rem;
+    }
 }
 
 @media (max-width: 600px) {
@@ -395,12 +406,12 @@ main {
     }
 
     .hero-card1 {
-        bottom: 22%;
+        bottom: 140px;
         left: 5%;
     }
 
     .hero-card2 {
-        bottom: 2%;
+        bottom: 10px;
         right: 5%;
     }
 
