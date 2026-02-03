@@ -388,25 +388,25 @@ main {
     }
 
     .hero-card-container {
-        height: 20%;
+        height: 30%;
         padding: 1.2;
     }
 
     .hero-card1,
     .hero-card2 {
         max-width: 40%;
-        padding: 1rem;
+        padding: .8rem;
         height: 100%;
     }
 
     .hero-card1 h1,
     .hero-card2 h1 {
-        font-size: 1rem;
+        font-size: .9rem;
     }
 
     .hero-card1 p,
     .hero-card2 p {
-        font-size: .9rem;
+        font-size: .8rem;
     }
 }
 
