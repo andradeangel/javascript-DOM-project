@@ -222,7 +222,7 @@ html {
     position: relative;
     display: inline-block;
     margin: 1rem 0;
-    transform: translateY(100vh);
+    transform: translateY(100dvh);
     opacity: 0;
     transition: transform 1s cubic-bezier(0.68, -0.55, 0.27, 1.55),
         opacity 0.9s ease;
@@ -287,7 +287,7 @@ html {
 /* ESTILOS DE CONTENIDO PRINCIPAL */
 
 main {
-    height: 100vh;
+    height: 100dvh;
     background-color: black;
 }
 
@@ -300,7 +300,6 @@ main {
 
 .portada {
     width: 100%;
-    /* width: clamp(200px, 100%, 900px); */
     margin: auto;
     height: 100dvh;
     position: relative;
@@ -311,9 +310,7 @@ main {
     width: 100%;
     height: 100dvh;
     object-fit: contain;
-    /* Cambiado de cover a contain para mostrar la imagen completa */
     object-position: center;
-    /* Centrar la imagen */
     filter: saturate(0);
 }
 
@@ -329,9 +326,13 @@ main {
 }
 
 .hero-card-container {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
     max-width: 1200px;
+    height: 35%;
     margin: auto;
-    position: relative;
 }
 
 .hero-card1,
@@ -342,12 +343,13 @@ main {
     -webkit-backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: var(--radio);
-    padding: 2rem;
+    padding: 1.5rem;
     pointer-events: auto;
     cursor: pointer;
     transition: all 0.3s ease;
     max-width: 400px;
     bottom: 10%;
+    height: 100%;
 }
 
 .hero-card1:hover,
@@ -367,7 +369,7 @@ main {
 
 .hero-card1 h1,
 .hero-card2 h1 {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     margin-bottom: 1rem;
     color: var(--starColor);
     font-weight: 700;
@@ -375,7 +377,7 @@ main {
 
 .hero-card1 p,
 .hero-card2 p {
-    font-size: 1.1rem;
+    font-size: .9rem;
     color: var(--textColor);
     line-height: 1.6;
 }
@@ -383,6 +385,11 @@ main {
 @media (max-width: 900px) {
     .portada img {
         object-fit: cover;
+    }
+
+    .hero-card-container {
+        height: 30%;
+        padding: 1.2;
     }
 
     .hero-card1,
@@ -393,36 +400,49 @@ main {
 
     .hero-card1 h1,
     .hero-card2 h1 {
-        font-size: 1rem;
+        font-size: .9rem;
+    }
+
+    .hero-card1 p,
+    .hero-card2 p {
+        font-size: .8rem;
     }
 }
 
 @media (max-width: 600px) {
 
+    .hero-card-container {
+        height: 30%;
+        padding: 1.2;
+    }
+
     .hero-card1,
     .hero-card2 {
         max-width: 90%;
-        padding: 1rem;
+        padding: .6rem;
     }
 
     .hero-card1 {
         bottom: 140px;
         left: 5%;
+        height: 60%;
     }
 
     .hero-card2 {
         bottom: 10px;
         right: 5%;
+        height: 60%;
     }
 
     .hero-card1 h1,
     .hero-card2 h1 {
-        font-size: 1rem;
+        font-size: .8rem;
+        margin-bottom: .3rem;
     }
 
     .hero-card1 p,
     .hero-card2 p {
-        font-size: 1.1rem;
+        font-size: .7rem;
     }
 }
 
