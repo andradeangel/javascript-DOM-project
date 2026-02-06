@@ -265,3 +265,7 @@ function menuSwitch() {
     animate();
 
 })(); // Fin de la IIFE - Se ejecuta inmediatamente
+
+// ============================================
+// ORDENAMIENTO DEL ABOUT
+// ============================================
