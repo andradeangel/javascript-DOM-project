@@ -269,3 +269,33 @@ function menuSwitch() {
 // ============================================
 // ORDENAMIENTO DEL ABOUT
 // ============================================
+function reorderElements() {
+    const container = document.querySelector('.presentacion-container');
+    const presentacionDiv = document.querySelector('.presentacion');
+    const h2 = document.querySelector('.presentacion h2') || container.querySelector('h2');
+    const img = document.querySelector('.presentacion-container img');
+    const p = document.querySelector('.presentacion p') || container.querySelector('p');
+    const buttons = document.querySelector('.presentacion-buttons');
+
+    if (window.innerWidth <= 600) {
+        // Orden móvil: h2 → img → p → buttons (todos hijos directos de container)
+        container.appendChild(h2);
+        container.appendChild(img);
+        container.appendChild(p);
+        container.appendChild(buttons);
+    } else {
+        // Orden desktop: PRIMERO devolver elementos a presentacionDiv
+        presentacionDiv.appendChild(h2);
+        presentacionDiv.appendChild(p);
+        presentacionDiv.appendChild(buttons);
+
+        // LUEGO asegurar orden en container: presentacionDiv → img
+        container.insertBefore(presentacionDiv, img);
+    }
+}
+
+// Ejecutar al cargar la página
+reorderElements();
+
+// Ejecutar al cambiar tamaño de ventana
+window.addEventListener('resize', reorderElements);
