@@ -713,7 +713,7 @@ main {
 }
 
 .skills h3 {
-    margin-right: 40px;
+    margin-right: 30px;
 }
 
 .skills-carousel {
@@ -723,20 +723,33 @@ main {
     overflow: hidden;
     white-space: nowrap;
     width: 100%;
+    position: relative;
+    /* Máscara de desvanecimiento en los bordes */
+    mask-image: linear-gradient(to right,
+            transparent 0%,
+            black 10%,
+            black 90%,
+            transparent 100%);
+    -webkit-mask-image: linear-gradient(to right,
+            transparent 0%,
+            black 10%,
+            black 90%,
+            transparent 100%);
 }
 
 .skills-track {
     display: flex;
     align-items: center;
-    gap: 30px;
+    gap: 0;
     animation: marquee 20s linear infinite;
 }
 
 .skills-carousel .skills-track img {
+    margin-right: 50px;
     width: 40px;
     object-fit: cover;
     border-radius: var(--radio);
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
     animation: fadeInScale 1s ease-out 0.3s backwards;
 }
 
@@ -755,6 +768,30 @@ main {
 
     100% {
         transform: translateX(-50%);
+    }
+}
+
+@media (max-width: 600px) {
+    .skills-container {
+        padding: 0 20px;
+    }
+
+    .skills {
+        margin: 0;
+        width: 100%;
+    }
+
+    .skills h3 {
+        margin-right: 15px;
+    }
+
+    .skills-track {
+        display: flex;
+        align-items: center;
+    }
+
+    .skills-carousel .skills-track img {
+        margin-right: 30px;
     }
 }
 
