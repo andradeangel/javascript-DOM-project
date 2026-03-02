@@ -326,11 +326,11 @@ main {
 
 .hero-card-container {
     position: absolute;
-    bottom: 0;
+    bottom: 50px;
     right: 0;
     left: 0;
     max-width: 1200px;
-    height: 35%;
+    height: clamp(150px, 35%, 250px);
     margin: auto;
 }
 
@@ -344,11 +344,9 @@ main {
     border-radius: var(--radio);
     padding: 1.5rem;
     pointer-events: auto;
-    cursor: pointer;
     transition: all 0.3s ease;
     max-width: 400px;
     height: 100%;
-    bottom: 50px;
 }
 
 .hero-card1:hover,
@@ -566,13 +564,6 @@ main {
     height: 400px;
     object-fit: cover;
     border-radius: var(--radio);
-    /* Borde con efecto glassmorphism */
-    border: 2px solid rgba(0, 195, 255, 0.2);
-    /* Sombra con efecto de profundidad */
-    box-shadow:
-        0 8px 32px 0 rgba(0, 0, 0, 0.37),
-        0 0 0 1px rgba(255, 255, 255, 0.1),
-        inset 0 0 20px rgba(0, 195, 255, 0.05);
     /* Transición suave */
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     /* Animación de aparición */
@@ -580,7 +571,6 @@ main {
 }
 
 .presentacion-container img:hover {
-    transform: translateY(-10px) scale(1.02);
     border-color: rgba(0, 195, 255, 0.5);
     box-shadow:
         0 20px 60px 0 rgba(0, 0, 0, 0.5),
@@ -639,7 +629,7 @@ main {
     }
 
     .presentacion {
-        padding: 1.2rem;
+        padding: 0;
     }
 
     .presentacion-buttons {
@@ -700,6 +690,7 @@ main {
     background-color: rgba(48, 48, 48, 0.3);
     backdrop-filter: blur(10px);
     padding: 0 50px;
+    margin: 50px 0;
 }
 
 .skills {
@@ -794,6 +785,16 @@ main {
         margin-right: 30px;
     }
 }
+
+.description-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: clamp(250px, 80%, 1200px);
+    margin: auto;
+}
+
+
 
 /* FIN DE ESTILOS DE SECCION ABOUT */
 
