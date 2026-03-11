@@ -1,13 +1,12 @@
 // ==========================================
 // COMPORTAMIENTO DEL MENU
 // ==========================================
-
 function menuSwitch() {
     const soundMenu = new Audio("./assets/audio/swooshMenu.mp3");
     const switchMenu = document.getElementById("options");
     const logoText = document.getElementById("logoText");
     const navbar = document.getElementById("navbar");
-    const btn = document.getElementsByClassName("btn-101")[0];
+    const btn = document.getElementById("btn-menu");
     const icon = document.getElementById("icon");
 
     switchMenu.classList.toggle("show");

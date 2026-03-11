@@ -93,6 +93,21 @@ html {
     transition: all 0.1s ease;
 }
 
+.lets-talk {
+    margin-left: auto;
+    position: relative;
+    z-index: 1;
+}
+
+/* Cuando el menú está abierto, ocultar el botón Let's Talk */
+.navbar.navbarStyle .lets-talk {
+    pointer-events: none;
+}
+
+.lets-talk button span {
+    margin-left: 1rem;
+}
+
 /* ESTILOS DEL BOTON */
 .btn-101.btnStyle {
     background-color: var(--fifthColor);
@@ -276,6 +291,12 @@ html {
 .hover-underline:hover::after,
 .hover-underline:hover::before {
     transform: scaleX(1);
+}
+
+@media (max-width: 400px) {
+    .lets-talk {
+        display: none;
+    }
 }
 
 /* FIN DE ESTILOS DE OPCIONES */
@@ -470,7 +491,7 @@ main {
     position: relative;
     margin-top: -100dvh;
     min-height: 100dvh;
-    padding: 150px 100px 100px 100px;
+    padding: 150px 100px 50px 100px;
     z-index: 1;
 }
 
@@ -482,9 +503,15 @@ main {
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: var(--radio);
     padding: 2rem;
+    width: 50%;
+    transition: all 0.3s ease;
     box-shadow:
         0 8px 32px 0 rgba(0, 0, 0, 0.37),
         inset 0 1px 0 0 rgba(255, 255, 255, 0.1);
+}
+
+.presentacion:hover {
+    transform: translateY(-5px);
 }
 
 .presentacion h2 {

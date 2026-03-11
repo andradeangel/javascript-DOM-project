@@ -41,9 +41,29 @@
             <h2 class="logoText" id="logoText">Andrade Ángel</h2>
           </a>
         </div>
+        <div class="lets-talk">
+          <button class="btn-101">Let's Talk <span class="material-symbols-outlined">
+              send
+            </span>
+            <svg>
+              <defs>
+                <filter id="glow">
+                  <fegaussianblur result="coloredBlur" stddeviation="5"></fegaussianblur>
+                  <femerge>
+                    <femergenode in="coloredBlur"></femergenode>
+                    <femergenode in="coloredBlur"></femergenode>
+                    <femergenode in="coloredBlur"></femergenode>
+                    <femergenode in="SourceGraphic"></femergenode>
+                  </femerge>
+                </filter>
+              </defs>
+              <rect />
+            </svg>
+          </button>
+        </div>
         <!-- BOTON DEL MENU -->
         <div class="menu">
-          <button class="btn-101" onclick="menuSwitch()">
+          <button class="btn-101" id="btn-menu" onclick="menuSwitch()">
             <span class="material-symbols-outlined" id="icon">
               menu
             </span>
