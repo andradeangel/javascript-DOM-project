@@ -486,7 +486,7 @@ main {
     height: 100dvh;
     z-index: 0;
     object-fit: cover;
-    filter: grayscale(70%) opacity(0.5);
+    filter: grayscale(40%) opacity(0.2);
 }
 
 .presentacion-container {
@@ -532,8 +532,53 @@ main {
     /* Animación de aparición */
     animation: fadeInUp 1s ease-out;
     /* Efecto de brillo sutil */
-    text-shadow: 0 0 20px rgba(0, 195, 255, 0.3);
+    text-shadow: 0 0 20px black;
 }
+
+/* From Uiverse.io by Daniel1227k */ 
+.card {
+  position: relative;
+  width: 190px;
+  height: 254px;
+  background: #f00;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(315deg,#03a9f4,#ff0058);
+}
+
+.card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(315deg,#03a9f4,#ff0058);
+  filter: blur(30px);
+}
+
+.card b {
+  position: absolute;
+  inset: 6px;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 2;
+}
+
+.card img {
+  position: absolute;
+  z-index: 10;
+}
+
 
 @keyframes fadeInUp {
     from {
@@ -571,7 +616,7 @@ main {
 }
 
 .presentacion-buttons button span {
-    margin: 0 10px;
+    margin: 0 0 0 10px;
     font-size: 1rem;
 }
 
@@ -594,7 +639,7 @@ main {
     }
 }
 
-.presentacion-container img {
+.presentacion-container img, .presentacion-container .card {
     width: 300px;
     height: 400px;
     object-fit: cover;
@@ -613,6 +658,77 @@ main {
         inset 0 0 30px rgba(0, 195, 255, 0.1),
         0 0 40px rgba(0, 195, 255, 0.3);
 }
+
+.description-container {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    justify-content: center;
+    width: clamp(250px, 80%, 1200px);
+    margin: auto;
+    padding: 50px 0;
+}
+
+.description-container h2 {
+    color: var(--starColor);
+    text-shadow: 0 0 20px black;
+}
+
+.description-container p {
+    color: var(--textColor);
+    line-height: 1.8;
+    text-wrap: balance;
+    margin: 2rem 0;
+}
+.description-container .definition-cards {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+.definition-cards p {
+    margin: 0;
+}
+
+.definition-cards .presentacion h3{
+    margin: 1rem 0;
+    font-weight: 800;
+    
+}
+
+.definition-cards .presentacion p {
+    line-height: 1.2;
+    font-size: 1rem;
+}
+
+.definition-cards .presentacion:hover {
+    color: var(--starColor);
+    transition: all 0.3s ease;
+}
+
+/* From Uiverse.io by faxriddin20 */ 
+.Btn {
+  width: 30px;
+  height: 30px;
+  border: none;
+  border-radius: var(--radio);
+  background-color: var(--fifthColor);
+  color: var(--textColor);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  transition-duration: 0.3s;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.11);
+}
+
+.definition-cards .presentacion:hover .Btn {
+    color: black;
+    background-color: var(--starColor);
+}
+
+
 
 @keyframes fadeInScale {
     from {
@@ -639,6 +755,7 @@ main {
 
     .presentacion h2 {
         font-size: 1.5rem;
+        text-shadow: 0 0 20px black;
     }
 
     .presentacion p {
@@ -653,6 +770,11 @@ main {
         height: 330px;
         object-fit: cover;
     }
+
+    .presentacion-container .card {
+        width: 250px;
+        height: 330px;
+    }
 }
 
 @media (max-width: 600px) {
@@ -665,6 +787,7 @@ main {
 
     .presentacion {
         padding: 0;
+        border: 0;
     }
 
     .presentacion-buttons {
@@ -696,6 +819,12 @@ main {
         margin-bottom: 1rem;
     }
 
+    .presentacion-container .card {
+        width: 200px;
+        height: 280px;
+        margin: 15px 0;
+    }
+
     .presentacion-container img {
         width: 200px;
         height: 280px;
@@ -707,6 +836,7 @@ main {
         color: var(--starColor);
         text-align: center;
         margin-bottom: 15px;
+        text-shadow: 0 0 15px black;
     }
 
     .presentacion-container p {
@@ -715,6 +845,24 @@ main {
         line-height: 1.6;
         text-wrap: balance;
         margin-bottom: 1.5rem;
+    }
+
+    .description-container .definition-cards {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .description-container .definition-cards .presentacion {
+        width: 100%;
+        text-align: center;
+    }
+    .definition-cards .presentacion h3 {
+        margin: 0;
+    }
+
+    .definition-cards .presentacion p {
+        font-size: 0.9rem;
+        margin: 2rem 0;
     }
 }
 
@@ -820,16 +968,6 @@ main {
         margin-right: 30px;
     }
 }
-
-.description-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: clamp(250px, 80%, 1200px);
-    margin: auto;
-}
-
-
 
 /* FIN DE ESTILOS DE SECCION ABOUT */
 

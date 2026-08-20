@@ -275,11 +275,12 @@ function reorderElements() {
     const img = document.querySelector('.presentacion-container img');
     const p = document.querySelector('.presentacion p') || container.querySelector('p');
     const buttons = document.querySelector('.presentacion-buttons');
+    const card = document.querySelector('.presentacion-container .card');
 
     if (window.innerWidth <= 600) {
         // Orden móvil: h2 → img → p → buttons (todos hijos directos de container)
         container.appendChild(h2);
-        container.appendChild(img);
+        container.appendChild(card);
         container.appendChild(p);
         container.appendChild(buttons);
     } else {
@@ -289,7 +290,7 @@ function reorderElements() {
         presentacionDiv.appendChild(buttons);
 
         // LUEGO asegurar orden en container: presentacionDiv → img
-        container.insertBefore(presentacionDiv, img);
+        container.insertBefore(presentacionDiv, card);
     }
 }
 
