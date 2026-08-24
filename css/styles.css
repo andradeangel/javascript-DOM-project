@@ -706,6 +706,19 @@ main {
     transition: all 0.3s ease;
 }
 
+.definition-cards-objetives {
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 20px;
+}
+
+.definition-cards-objetives .presentacion {
+    width: 100%;
+}
+
+.definition-cards-objetives .objetive {
+    display: flex;
+}
 /* From Uiverse.io by faxriddin20 */ 
 .Btn {
   width: 30px;

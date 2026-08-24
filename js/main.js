@@ -268,29 +268,32 @@ function menuSwitch() {
 // ============================================
 // ORDENAMIENTO DEL ABOUT
 // ============================================
+const aboutContainer = document.querySelector('.presentacion-container');
+const aboutPresentation = aboutContainer?.querySelector(':scope > .presentacion');
+const aboutHeading = aboutPresentation?.querySelector('h2');
+const aboutDescription = aboutPresentation?.querySelector('p');
+const aboutButtons = aboutPresentation?.querySelector('.presentacion-buttons');
+const aboutCard = aboutContainer?.querySelector(':scope > .card');
+
 function reorderElements() {
-    const container = document.querySelector('.presentacion-container');
-    const presentacionDiv = document.querySelector('.presentacion');
-    const h2 = document.querySelector('.presentacion h2') || container.querySelector('h2');
-    const img = document.querySelector('.presentacion-container img');
-    const p = document.querySelector('.presentacion p') || container.querySelector('p');
-    const buttons = document.querySelector('.presentacion-buttons');
-    const card = document.querySelector('.presentacion-container .card');
+    if (!aboutContainer || !aboutPresentation || !aboutHeading || !aboutDescription || !aboutButtons || !aboutCard) {
+        return;
+    }
 
     if (window.innerWidth <= 600) {
         // Orden móvil: h2 → img → p → buttons (todos hijos directos de container)
-        container.appendChild(h2);
-        container.appendChild(card);
-        container.appendChild(p);
-        container.appendChild(buttons);
+        aboutContainer.appendChild(aboutHeading);
+        aboutContainer.appendChild(aboutCard);
+        aboutContainer.appendChild(aboutDescription);
+        aboutContainer.appendChild(aboutButtons);
     } else {
         // Orden desktop: PRIMERO devolver elementos a presentacionDiv
-        presentacionDiv.appendChild(h2);
-        presentacionDiv.appendChild(p);
-        presentacionDiv.appendChild(buttons);
+        aboutPresentation.appendChild(aboutHeading);
+        aboutPresentation.appendChild(aboutDescription);
+        aboutPresentation.appendChild(aboutButtons);
 
         // LUEGO asegurar orden en container: presentacionDiv → img
-        container.insertBefore(presentacionDiv, card);
+        aboutContainer.insertBefore(aboutPresentation, aboutCard);
     }
 }
 
