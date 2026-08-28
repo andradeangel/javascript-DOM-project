@@ -486,7 +486,7 @@ main {
     height: 100dvh;
     z-index: 0;
     object-fit: cover;
-    filter: grayscale(40%) opacity(0.2);
+    filter: grayscale(40%) opacity(0.3);
 }
 
 .presentacion-container {
@@ -740,6 +740,28 @@ main {
     padding: 2rem;
 }
 
+.definition-cards-objetives .objetive .Btn {
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    min-width: 40px;
+    flex: 0 0 40px;
+    background-color: var(--sixthColor);
+    color: cyan;
+}
+
+.definition-cards-objetives .objetive:first-child .Btn  {
+    color: greenyellow
+}
+
+.definition-cards-objetives .objetive:nth-child(2) .Btn {
+    color: orchid;
+}
+
+.definition-cards-objetives .objetive:last-child .Btn{
+    color: yellow;
+}
+
 .definition-cards-objetives .objetive .definition-text p{
     font-style: italic;
     line-height: 1.2;
@@ -816,6 +838,11 @@ main {
     .presentacion-container .card {
         width: 250px;
         height: 330px;
+    }
+
+    .definition-cards-objetives .objetive {
+        flex-direction: column;
+        padding: 1.5rem;
     }
 }
 
@@ -906,6 +933,18 @@ main {
         font-size: 0.9rem;
         margin: 2rem 0;
     }
+
+    .definition-cards-objetives {
+        grid-template-columns: 1fr;
+    }
+
+    .definition-cards-objetives .objetive {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 1rem;
+    }
+
 }
 
 .skills-container {
@@ -915,7 +954,6 @@ main {
     background-color: rgba(48, 48, 48, 0.3);
     backdrop-filter: blur(10px);
     padding: 0 50px;
-    margin: 50px 0;
 }
 
 .skills {
