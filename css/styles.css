@@ -1485,11 +1485,29 @@ main {
 
 .my-projects .my-projects-grid {
     display: grid;
-    grid-template-columns: repeat(auto fit, minmax(250px, 1fr));
+    grid-template-columns: auto auto;
     gap: 20px;
-    margin-top: 2rem;
+    margin: 2rem 0;
 }
 
+.my-projects .my-projects-grid .my-projects-card .my-projects-title {
+    display: flex;
+}
+
+.my-projects .my-projects-grid .my-projects-card {
+    width: 100%;
+}
+
+@media (max-width: 600px) {
+    .my-projects .my-projects-grid {
+        grid-template-columns: auto;
+    }
+
+    .my-projects {
+        width: clamp(150px, 90%, 1200px);
+        margin: 0 auto 3rem auto;
+    }
+}
 /* FIN DE ESTILOS DE SECCION CREATIONS */
 
 /* FIN DE ESTILOS DE CONTENIDO PRINCIPAL */
