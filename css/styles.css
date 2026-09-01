@@ -1492,10 +1492,46 @@ main {
 
 .my-projects .my-projects-grid .my-projects-card .my-projects-title {
     display: flex;
+    align-items: center;
+}
+
+.my-projects .my-projects-grid .my-projects-card .my-projects-title a {
+    margin: 0;
+    font-size: 1rem;
+    color: var(--starColor);
+    font-weight: 700;
+    text-decoration: none;
+}   
+
+.my-projects .my-projects-grid .my-projects-card .my-projects-title a:hover {
+    color: var(--fifthColor);
+    transition: all 0.3s ease;
+}
+
+.my-projects .my-projects-grid .my-projects-card .my-projects-title h3 {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem; 
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+
+.my-projects .my-projects-grid .my-projects-card .my-projects-title .material-symbols-outlined {
+  font-size: 1rem;
 }
 
 .my-projects .my-projects-grid .my-projects-card {
     width: 100%;
+}
+
+.my-projects .my-projects-grid .my-projects-card label {
+    color: var(--textColor);
+    display: inline-block;
+    border-radius: var(--radio);
+    background-color: var(--sixthColor);
+    padding: .1rem .2rem;
+    margin-bottom: .5rem;
+    font-size: .8rem;
 }
 
 @media (max-width: 600px) {
@@ -1507,6 +1543,28 @@ main {
         width: clamp(150px, 90%, 1200px);
         margin: 0 auto 3rem auto;
     }
+    
+    .my-projects .my-projects-tags ul .btn-5{
+        padding: .5rem .8rem;
+    }
+    .my-projects-card {
+        text-align: center;
+    }
+
+    .my-projects .my-projects-grid .my-projects-card .my-projects-title {
+        justify-content: center;
+    }
+
+    .my-projects .my-projects-grid .my-projects-card p {
+        line-height: 1.2;
+        padding: 0 1rem;
+    }
+
+    .my-projects .my-projects-grid .my-projects-card .my-projects-title h3 {
+        margin: 1rem;
+    }
+
+
 }
 /* FIN DE ESTILOS DE SECCION CREATIONS */
 
