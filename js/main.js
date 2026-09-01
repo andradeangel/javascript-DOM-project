@@ -302,3 +302,11 @@ reorderElements();
 
 // Ejecutar al cambiar tamaño de ventana
 window.addEventListener('resize', reorderElements);
+
+// Tags de los repositorios
+let tagAll = document.getElementById("tag-all");
+let tagFrontend = document.getElementById("tag-frontend");
+let tagBackend = document.getElementById("tag-backend");
+let tagFullstack = document.getElementById("tag-fullstack");
+
+tagAll.style.backgroundColor = "#00c3ff";
