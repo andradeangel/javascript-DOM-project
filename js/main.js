@@ -309,4 +309,9 @@ let tagFrontend = document.getElementById("tag-frontend");
 let tagBackend = document.getElementById("tag-backend");
 let tagFullstack = document.getElementById("tag-fullstack");
 
-tagAll.style.backgroundColor = "#00c3ff";
+addEventListener('click', function() {
+   tagAll.classList.remove("tag-active");
+   tagFrontend.classList.remove("tag-active");
+   tagBackend.classList.remove("tag-active");
+   tagFullstack.classList.remove("tag-active");
+});
