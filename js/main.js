@@ -303,15 +303,47 @@ reorderElements();
 // Ejecutar al cambiar tamaño de ventana
 window.addEventListener('resize', reorderElements);
 
-// Tags de los repositorios
-let tagAll = document.getElementById("tag-all");
-let tagFrontend = document.getElementById("tag-frontend");
-let tagBackend = document.getElementById("tag-backend");
-let tagFullstack = document.getElementById("tag-fullstack");
+//Funcionalidad de mostrar tipos de proyectos
+let tagAll = document.getElementById("tagAll");
+let tagFrontend = document.getElementById("tagFrontend");
+let tagBackend = document.getElementById("tagBackend");
+let tagFullstack = document.getElementById("tagFullstack");
 
-addEventListener('click', function() {
-   tagAll.classList.remove("tag-active");
-   tagFrontend.classList.remove("tag-active");
-   tagBackend.classList.remove("tag-active");
-   tagFullstack.classList.remove("tag-active");
-});
+tagAll.addEventListener('click', showAllProjects); 
+tagFrontend.addEventListener('click', showFrontendProjects);
+tagBackend.addEventListener('click', showBackendProjects);
+tagFullstack.addEventListener('click', showFullstackProjects);
+
+function showAllProjects(event) {
+    let list= document.querySelectorAll(".my-projects-card");
+    for(let i=0; i<list.length; i++){
+        list[i].style.display = "block";
+    }
+}
+
+function showFrontendProjects(event) {
+    let list= document.querySelectorAll(".my-projects-card");
+    for(let i=0; i<list.length; i++){
+        if(list[i].dataset.category != "frontend"){
+            list[i].style.display = "none";
+        }
+    }
+}
+
+function showBackendProjects(event) {
+    let list = document.querySelectorAll(".my-projects-card");
+    for(let i=0; i<list.length; i++){
+        if(list[i].dataset.category != "backend"){
+            list[i].style.display = "none";
+        }
+    }
+}
+
+function showFullstackProjects(event) {
+    let list = document.querySelectorAll(".my-projects-card");
+    for(let i=0; i<list.length; i++){
+        if(list[i].dataset.category != "fullstack"){
+            list[i].style.display = "none";
+        }
+    }
+}
