@@ -1483,6 +1483,10 @@ main {
     gap: 10px;
 }
 
+.my-projects .my-projects-tags .active {
+    background-color: #fff;
+}
+
 .my-projects .my-projects-grid {
     display: grid;
     grid-template-columns: auto auto;

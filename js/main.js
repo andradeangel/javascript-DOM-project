@@ -315,6 +315,11 @@ tagBackend.addEventListener('click', showBackendProjects);
 tagFullstack.addEventListener('click', showFullstackProjects);
 
 function showAllProjects(event) {
+    tagAll.classList.add("active");
+    tagFrontend.classList.remove("active");
+    tagBackend.classList.remove("active");
+    tagFullstack.classList.remove("active");
+
     let list= document.querySelectorAll(".my-projects-card");
     for(let i=0; i<list.length; i++){
         list[i].style.display = "block";
@@ -322,8 +327,14 @@ function showAllProjects(event) {
 }
 
 function showFrontendProjects(event) {
+    tagFrontend.classList.add("active");
+    tagAll.classList.remove("active");
+    tagBackend.classList.remove("active");
+    tagFullstack.classList.remove("active");
+    
     let list= document.querySelectorAll(".my-projects-card");
     for(let i=0; i<list.length; i++){
+        list[i].style.display = "block";
         if(list[i].dataset.category != "frontend"){
             list[i].style.display = "none";
         }
@@ -331,8 +342,14 @@ function showFrontendProjects(event) {
 }
 
 function showBackendProjects(event) {
+    tagBackend.classList.add("active");
+    tagAll.classList.remove("active");
+    tagFrontend.classList.remove("active");
+    tagFullstack.classList.remove("active");
+
     let list = document.querySelectorAll(".my-projects-card");
     for(let i=0; i<list.length; i++){
+        list[i].style.display = "block";
         if(list[i].dataset.category != "backend"){
             list[i].style.display = "none";
         }
@@ -340,10 +357,26 @@ function showBackendProjects(event) {
 }
 
 function showFullstackProjects(event) {
+    tagFullstack.classList.add("active");
+    tagAll.classList.remove("active");
+    tagFrontend.classList.remove("active");
+    tagBackend.classList.remove("active");
+
     let list = document.querySelectorAll(".my-projects-card");
     for(let i=0; i<list.length; i++){
+        list[i].style.display = "block";
         if(list[i].dataset.category != "fullstack"){
             list[i].style.display = "none";
         }
     }
+}
+
+//Funcionalidad para mostrar unicamente 4 elementos con compaginación
+let cards = document.getElementsByClassName("my-projects-card");
+let cardsArray = Array.from(cards);
+let pages = Math.ceil(cards.length / 4);
+
+cardsArray.slice(0, 4);
+for(let i=0; i<pages; i++){
+    
 }
