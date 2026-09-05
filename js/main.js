@@ -324,6 +324,8 @@ function showAllProjects(event) {
     for(let i=0; i<list.length; i++){
         list[i].style.display = "block";
     }
+
+    buttons(list);
 }
 
 function showFrontendProjects(event) {
@@ -374,9 +376,25 @@ function showFullstackProjects(event) {
 //Funcionalidad para mostrar unicamente 4 elementos con compaginación
 let cards = document.getElementsByClassName("my-projects-card");
 let cardsArray = Array.from(cards);
-let pages = Math.ceil(cards.length / 4);
 
-cardsArray.slice(0, 4);
+let page1 = document.getElementById("page-1");
+let page2 = document.getElementById("page-2");
+let page3 = document.getElementById("page-3");
+
+function buttons(list){
+    let listArray = Array.from(list);
+    let pages = Math.ceil(listArray.length / 4);
+    let pageButton;
+    for(let i=0; i<pages; i++){
+        pageButton = document.createElement("button")
+        pageButton.classList.add("btn-5");
+        let label = document.createElement("label")
+        pageButton.appendChild(label);
+        label.innerText = i+1;
+        document.getElementById("pages").appendChild(pageButton);
+    }
+}
+
 for(let i=0; i<pages; i++){
     
 }
