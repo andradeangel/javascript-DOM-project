@@ -1538,6 +1538,11 @@ main {
     font-size: .8rem;
 }
 
+.my-projects .pages {
+    display: flex;
+    gap: 10px;
+}
+
 @media (max-width: 600px) {
     .my-projects .my-projects-grid {
         grid-template-columns: auto;
