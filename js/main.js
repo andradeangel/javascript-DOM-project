@@ -321,10 +321,7 @@ function showAllProjects(event) {
     tagBackend.classList.remove("active");
     tagFullstack.classList.remove("active");
 
-    let list = document.querySelectorAll(".my-projects-card");
-    for(let i=0; i<list.length; i++){
-        list[i].style.display = "block";
-    }
+    
     let pages = document.querySelectorAll(".my-projects-card");
     buttons(pages, "all");
 }
@@ -399,6 +396,8 @@ function buttons(pages, category){
                 label.innerText = i+1;
                 document.getElementById("pages").appendChild(pageButton);
             }
+            let allPages = document.querySelectorAll("#pages .btn-5");
+            showPage(allPages, "all");
             break;
         case "frontend":
             cleanButton.forEach(button => button.remove());
@@ -410,6 +409,8 @@ function buttons(pages, category){
                 label.innerText = i+1;
                 document.getElementById("pages").appendChild(pageButton);
             }
+            let frontendPages = document.querySelectorAll("#pages .btn-5.frontend");
+            showPage(frontendPages);
             break;
         case "backend":
             cleanButton.forEach(button => button.remove());
@@ -421,6 +422,8 @@ function buttons(pages, category){
                 label.innerText = i+1;
                 document.getElementById("pages").appendChild(pageButton);
             }
+            let backendPages = document.querySelectorAll("#pages .btn-5.backend");
+            showPage(backendPages);
             break;
         case "fullstack":
             cleanButton.forEach(button => button.remove());
@@ -432,9 +435,21 @@ function buttons(pages, category){
                 label.innerText = i+1;
                 document.getElementById("pages").appendChild(pageButton);
             }
+            let fullstackPages = document.querySelectorAll("#pages .btn-5.fullstack");
+            showPage(fullstackPages);
             break;
-    }
-        
+    } 
 }
 
-//Funcionalidad para mostrar los votones activos de compaginacion
+//Funcionalidad para mostrar los botones activos de compaginación
+function showPage(totalPages, categoria){
+    let totalPagesArray = Array.from(totalPages)
+    for(let i=0; i<totalPagesArray.length; i++){
+        totalPagesArray[i].addEventListener('click', function(){
+            console.log("Button clicked: " + (i+1));
+            totalPagesArray.slice(i*4, (i+1)*4).forEach(page => {
+                categoria.style.display = "block";
+            });
+        });
+    }
+}
