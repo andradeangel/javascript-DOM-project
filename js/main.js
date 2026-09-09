@@ -325,7 +325,8 @@ function showAllProjects(event) {
     for(let i=0; i<list.length; i++){
         list[i].style.display = "block";
     }
-    buttons(list, "all");
+    let pages = document.querySelectorAll(".my-projects-card");
+    buttons(pages, "all");
 }
 
 function showFrontendProjects(event) {
@@ -341,7 +342,8 @@ function showFrontendProjects(event) {
             list[i].style.display = "none";
         }
     }
-    buttons(list, "frontend");
+    let pages = document.querySelectorAll(".my-projects-card[data-category='frontend']");
+    buttons(pages, "frontend");
 }
 
 function showBackendProjects(event) {
@@ -357,7 +359,8 @@ function showBackendProjects(event) {
             list[i].style.display = "none";
         }
     }
-    buttons(list, "backend");
+    let pages = document.querySelectorAll(".my-projects-card[data-category='backend']");
+    buttons(pages, "backend");
 }
 
 function showFullstackProjects(event) {
@@ -373,63 +376,65 @@ function showFullstackProjects(event) {
             list[i].style.display = "none";
         }
     }
-    buttons(list, "fullstack");
+    let pages = document.querySelectorAll(".my-projects-card[data-category='fullstack']");
+    buttons(pages, "fullstack");
 }
 
 //Funcionalidad para mostrar unicamente 4 elementos con compaginación
-function buttons(list, category){
+function buttons(pages, category){
     let categoria = category;
-    let listArray = Array.from(list);
-    let pages = Math.ceil(listArray.length / 4);
-    let buttons = document.getElementsByClassName("all");
-    
-    console.log("Category: " + categoria);   
+    let pagesArray = Array.from(pages);
+    let totalPages = Math.ceil(pagesArray.length / 4);
+    console.log("Category: " + categoria + " Pages: " + totalPages);   
+    const cleanButton = document.querySelectorAll("#pages button"); 
 
     switch(categoria){
         case "all":
-            if(buttons.length > 0){
-                return;
-            } else {
-                for(let i=0; i<pages; i++){
+            cleanButton.forEach(button => button.remove());
+            for(let i=0; i<totalPages; i++){
                 let pageButton = document.createElement("button")
                 let label = document.createElement("label")
                 pageButton.classList.add("btn-5", "all");
                 pageButton.appendChild(label);
                 label.innerText = i+1;
                 document.getElementById("pages").appendChild(pageButton);
-                }
             }
             break;
         case "frontend":
-            for(let i=0; i<pages; i++){
-            let pageButton = document.createElement("button")
-            let label = document.createElement("label")
-            pageButton.classList.add("btn-5", "frontend");
-            pageButton.appendChild(label);
-            label.innerText = i+1;
-            document.getElementById("pages").appendChild(pageButton);
+            cleanButton.forEach(button => button.remove());
+            for(let i=0; i<totalPages; i++){
+                let pageButton = document.createElement("button")
+                let label = document.createElement("label")
+                pageButton.classList.add("btn-5", "frontend");
+                pageButton.appendChild(label);
+                label.innerText = i+1;
+                document.getElementById("pages").appendChild(pageButton);
             }
             break;
         case "backend":
-            for(let i=0; i<pages; i++){
-            let pageButton = document.createElement("button")
-            let label = document.createElement("label")
-            pageButton.classList.add("btn-5", "backend");
-            pageButton.appendChild(label);
-            label.innerText = i+1;
-            document.getElementById("pages").appendChild(pageButton);
+            cleanButton.forEach(button => button.remove());
+            for(let i=0; i<totalPages; i++){
+                let pageButton = document.createElement("button")
+                let label = document.createElement("label")
+                pageButton.classList.add("btn-5", "backend");
+                pageButton.appendChild(label);
+                label.innerText = i+1;
+                document.getElementById("pages").appendChild(pageButton);
             }
             break;
         case "fullstack":
-            for(let i=0; i<pages; i++){
-            let pageButton = document.createElement("button")
-            let label = document.createElement("label")
-            pageButton.classList.add("btn-5", "fullstack");
-            pageButton.appendChild(label);
-            label.innerText = i+1;
-            document.getElementById("pages").appendChild(pageButton);
+            cleanButton.forEach(button => button.remove());
+            for(let i=0; i<totalPages; i++){
+                let pageButton = document.createElement("button")
+                let label = document.createElement("label")
+                pageButton.classList.add("btn-5", "fullstack");
+                pageButton.appendChild(label);
+                label.innerText = i+1;
+                document.getElementById("pages").appendChild(pageButton);
             }
             break;
     }
         
 }
+
+//Funcionalidad para mostrar los votones activos de compaginacion
