@@ -315,14 +315,15 @@ tagBackend.addEventListener('click', showBackendProjects);
 tagFullstack.addEventListener('click', showFullstackProjects);
 
 showAllProjects(); // Mostrar todos los proyectos al cargar la página
+showPage("all");
 function showAllProjects(event) {
     tagAll.classList.add("active");
     tagFrontend.classList.remove("active");
     tagBackend.classList.remove("active");
     tagFullstack.classList.remove("active");
 
-    
     let pages = document.querySelectorAll(".my-projects-card");
+
     buttons(pages, "all");
 }
 
@@ -397,7 +398,7 @@ function buttons(pages, category){
                 document.getElementById("pages").appendChild(pageButton);
             }
             let allPages = document.querySelectorAll("#pages .btn-5");
-            showPage(allPages, "all");
+            showPage(allPages, pages);
             break;
         case "frontend":
             cleanButton.forEach(button => button.remove());
@@ -442,13 +443,18 @@ function buttons(pages, category){
 }
 
 //Funcionalidad para mostrar los botones activos de compaginación
-function showPage(totalPages, categoria){
+function showPage(totalPages, pagesCards){
     let totalPagesArray = Array.from(totalPages)
+    let pages = Array.from(pagesCards);
+
     for(let i=0; i<totalPagesArray.length; i++){
         totalPagesArray[i].addEventListener('click', function(){
             console.log("Button clicked: " + (i+1));
-            totalPagesArray.slice(i*4, (i+1)*4).forEach(page => {
-                categoria.style.display = "block";
+            for(let j=0; j<pages.length; j++){
+                pages[j].style.display = "none";
+            }
+            pages.slice(i*4, (i+1)*4).forEach(page => {
+                page.style.display = "block";
             });
         });
     }
