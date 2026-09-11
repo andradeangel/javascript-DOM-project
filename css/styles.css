@@ -1487,6 +1487,10 @@ main {
     background-color: #fff;
 }
 
+.my-projects .pages .active {
+    background-color: #fff;
+}
+
 .my-projects .my-projects-grid {
     display: grid;
     grid-template-columns: auto auto;

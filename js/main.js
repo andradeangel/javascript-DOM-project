@@ -315,15 +315,14 @@ tagBackend.addEventListener('click', showBackendProjects);
 tagFullstack.addEventListener('click', showFullstackProjects);
 
 showAllProjects(); // Mostrar todos los proyectos al cargar la página
-showPage("all");
 function showAllProjects(event) {
     tagAll.classList.add("active");
     tagFrontend.classList.remove("active");
     tagBackend.classList.remove("active");
     tagFullstack.classList.remove("active");
-
+    
     let pages = document.querySelectorAll(".my-projects-card");
-
+    
     buttons(pages, "all");
 }
 
@@ -391,10 +390,10 @@ function buttons(pages, category){
             cleanButton.forEach(button => button.remove());
             for(let i=0; i<totalPages; i++){
                 let pageButton = document.createElement("button")
-                let label = document.createElement("label")
+                let span = document.createElement("span")
                 pageButton.classList.add("btn-5", "all");
-                pageButton.appendChild(label);
-                label.innerText = i+1;
+                pageButton.appendChild(span);
+                span.innerText = i+1;
                 document.getElementById("pages").appendChild(pageButton);
             }
             let allPages = document.querySelectorAll("#pages .btn-5");
@@ -404,40 +403,40 @@ function buttons(pages, category){
             cleanButton.forEach(button => button.remove());
             for(let i=0; i<totalPages; i++){
                 let pageButton = document.createElement("button")
-                let label = document.createElement("label")
+                let span = document.createElement("span")
                 pageButton.classList.add("btn-5", "frontend");
-                pageButton.appendChild(label);
-                label.innerText = i+1;
+                pageButton.appendChild(span);
+                span.innerText = i+1;
                 document.getElementById("pages").appendChild(pageButton);
             }
             let frontendPages = document.querySelectorAll("#pages .btn-5.frontend");
-            showPage(frontendPages);
+            showPage(frontendPages, pages);
             break;
         case "backend":
             cleanButton.forEach(button => button.remove());
             for(let i=0; i<totalPages; i++){
                 let pageButton = document.createElement("button")
-                let label = document.createElement("label")
+                let span = document.createElement("span")
                 pageButton.classList.add("btn-5", "backend");
-                pageButton.appendChild(label);
-                label.innerText = i+1;
+                pageButton.appendChild(span);
+                span.innerText = i+1;
                 document.getElementById("pages").appendChild(pageButton);
             }
             let backendPages = document.querySelectorAll("#pages .btn-5.backend");
-            showPage(backendPages);
+            showPage(backendPages, pages);
             break;
         case "fullstack":
             cleanButton.forEach(button => button.remove());
             for(let i=0; i<totalPages; i++){
                 let pageButton = document.createElement("button")
-                let label = document.createElement("label")
+                let span = document.createElement("span")
                 pageButton.classList.add("btn-5", "fullstack");
-                pageButton.appendChild(label);
-                label.innerText = i+1;
+                pageButton.appendChild(span);
+                span.innerText = i+1;
                 document.getElementById("pages").appendChild(pageButton);
             }
             let fullstackPages = document.querySelectorAll("#pages .btn-5.fullstack");
-            showPage(fullstackPages);
+            showPage(fullstackPages, pages);
             break;
     } 
 }
@@ -449,13 +448,19 @@ function showPage(totalPages, pagesCards){
 
     for(let i=0; i<totalPagesArray.length; i++){
         totalPagesArray[i].addEventListener('click', function(){
-            console.log("Button clicked: " + (i+1));
+            totalPagesArray[i].classList.add("active");
             for(let j=0; j<pages.length; j++){
                 pages[j].style.display = "none";
             }
             pages.slice(i*4, (i+1)*4).forEach(page => {
                 page.style.display = "block";
             });
+            totalPagesArray.forEach((button, index) => {
+                if(index !== i) {
+                    button.classList.remove("active");
+                }
+            });
         });
     }
+    totalPagesArray[0].click();
 }
