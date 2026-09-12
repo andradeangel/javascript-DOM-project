@@ -997,11 +997,15 @@ main {
     gap: 0;
     animation: marquee 20s linear infinite;
     will-change: transform;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    transform: translate3d(0, 0, 0);
 }
 
 .skills-carousel .skills-track img {
     margin-right: 50px;
     width: 40px;
+    height: 40px;
     object-fit: cover;
     border-radius: var(--radio);
     transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
@@ -1018,11 +1022,10 @@ main {
 
 @keyframes marquee {
     0% {
-        transform: translateX(0);
+        transform: translate3d(0, 0, 0);
     }
-
     100% {
-        transform: translateX(-50%);
+        transform: translate3d(-50%, 0, 0);
     }
 }
 
