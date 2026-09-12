@@ -1005,7 +1005,7 @@ main {
     object-fit: cover;
     border-radius: var(--radio);
     transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-    animation: fadeInScale 1s ease-out 0.3s backwards;
+    /* animation: fadeInScale 1s ease-out 0.3s backwards; */
 }
 
 .skills-container p {
