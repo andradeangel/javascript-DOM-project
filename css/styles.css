@@ -996,6 +996,7 @@ main {
     align-items: center;
     gap: 0;
     animation: marquee 20s linear infinite;
+    will-change: transform;
 }
 
 .skills-carousel .skills-track img {
