@@ -979,7 +979,7 @@ main {
     width: 100%;
     position: relative;
     /* Máscara de desvanecimiento en los bordes */
-    mask-image: linear-gradient(to right,
+    /* mask-image: linear-gradient(to right,
             transparent 0%,
             black 10%,
             black 90%,
@@ -988,7 +988,7 @@ main {
             transparent 0%,
             black 10%,
             black 90%,
-            transparent 100%);
+            transparent 100%); */
 }
 
 .skills-track {
