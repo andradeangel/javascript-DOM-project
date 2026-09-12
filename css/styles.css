@@ -995,7 +995,7 @@ main {
     display: flex;
     align-items: center;
     gap: 0;
-    animation: marquee 40s linear infinite;
+    animation: marquee 20s linear infinite;
 }
 
 .skills-carousel .skills-track img {
@@ -1021,7 +1021,7 @@ main {
     }
 
     100% {
-        transform: translateX(-50%);
+        transform: translateX(-49.9%);
     }
 }
 
