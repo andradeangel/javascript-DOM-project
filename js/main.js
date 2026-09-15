@@ -453,7 +453,7 @@ function showPage(totalPages, pagesCards){
                 pages[j].style.display = "none";
             }
             pages.slice(i*4, (i+1)*4).forEach(page => {
-                page.style.display = "block";
+                page.style.display = "flex";
             });
             totalPagesArray.forEach((button, index) => {
                 if(index !== i) {
