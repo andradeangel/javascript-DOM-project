@@ -979,16 +979,16 @@ main {
     width: 100%;
     position: relative;
     /* Máscara de desvanecimiento en los bordes */
-    /* mask-image: linear-gradient(to right,
+    mask-image: linear-gradient(to right,
             transparent 0%,
-            black 10%,
-            black 90%,
+            black 20%,
+            black 80%,
             transparent 100%);
     -webkit-mask-image: linear-gradient(to right,
             transparent 0%,
-            black 10%,
-            black 90%,
-            transparent 100%); */
+            black 20%,
+            black 80%,
+            transparent 100%);
 }
 
 .skills-track {
@@ -1013,7 +1013,7 @@ main {
     height: 40px;
     object-fit: cover;
     border-radius: var(--radio);
-    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
     /* animation: fadeInScale 1s ease-out 0.3s backwards; */
 }
 
@@ -1487,7 +1487,6 @@ main {
     color: var(--starColor);
     text-shadow: 0 0 20px black;
     margin-bottom: 1rem;
-    font-size: xx-large;
     letter-spacing: -0.5px;
 }
 
