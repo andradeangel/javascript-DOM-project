@@ -1475,7 +1475,7 @@ main {
   --progress: 100%;
 }
 
-.creations-descriptions {
+.creations-description {
 	width: clamp(250px, 80%, 1200px);
     margin: auto;
     padding: 4rem 0;
@@ -1483,11 +1483,41 @@ main {
     text-wrap: balance;
 }
 
+.creations-description h2 {
+  color: var(--starColor);
+  text-shadow: 0 0 20px black;
+  margin-bottom: 1rem;
+  letter-spacing: -0.5px;
+  font-size: 2rem;
+}
+
+.creations-descriptions {
+	display:flex;
+  flex-direction: column;
+  width: clamp(250px, 80%, 1200px);
+  margin: auto;
+  padding: 4rem 0;
+  color: var(--textColor);
+  text-wrap: balance;
+}
+
 .creations-descriptions h2 {
     color: var(--starColor);
     text-shadow: 0 0 20px black;
     margin-bottom: 1rem;
     letter-spacing: -0.5px;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.creations-descriptions > h2::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background-color: var(--starColor);
+    opacity: 0.6;
+    
 }
 
 .my-projects {
@@ -1550,7 +1580,6 @@ main {
     width: 100%;
     display: flex;
     flex-direction: column;
-    padding-bottom: 2rem;
 }
 
 .project-tech {
@@ -1605,6 +1634,10 @@ main {
   gap: 20px;
 	color: var(--textColor);
 	text-wrap: balance;
+}
+
+.values {
+  padding-bottom: 3rem;
 }
 
 .values-cards {
@@ -1700,6 +1733,7 @@ main {
     }
     .my-projects-card {
         text-align: center;
+        padding: 1rem 0 2rem 0;
     }
 
     .project-tech {
@@ -1725,11 +1759,18 @@ main {
 
     .values-container .values-cards {
       width: 300px;
-      height: 100px;
+    }
+
+    .values-cards .values-cards-figure {
+        height: 100px;
     }
 
     .values-cards .values-cards-figure .card_title {
       font: 700 1.1rem monospace;
+    }
+
+    .text-values {
+      gap: 5px;
     }
 
     .text-values .text-values-content {
@@ -1737,8 +1778,28 @@ main {
       text-align: center;
       gap: 1px;
     }
+
+    .text-values .text-values-content div p {
+      display: none;
+    }
 }
 /* FIN DE ESTILOS DE SECCION CREATIONS */
+
+/* ESTILOS DE CONTACT */
+.contact-container {
+  width: clamp(250px, 80%, 1200px);
+  margin: auto;
+  padding: 5rem 0;
+  color: var(--textColor);
+  text-wrap: balance;
+}
+
+.contact-container span {
+  display: block;
+  color: var(--starColor);
+  font-size: 3rem;
+}
+/* FIN DE LOS ESTILOS SECCION CONTACT */
 
 /* FIN DE ESTILOS DE CONTENIDO PRINCIPAL */
 

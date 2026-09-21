@@ -464,3 +464,4 @@ function showPage(totalPages, pagesCards){
     }
     totalPagesArray[0].click();
 }
+
