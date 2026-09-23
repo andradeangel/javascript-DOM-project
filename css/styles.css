@@ -1793,7 +1793,7 @@ main {
 .contact-container {
   width: clamp(250px, 80%, 1200px);
   margin: auto;
-  padding: 5rem 0;
+  padding: 6rem 0;
   color: var(--textColor);
   text-wrap: balance;
 }
@@ -1810,15 +1810,58 @@ main {
 
 .contact-container .form-container {
     display: flex;
-    padding: 3rem 0;
+    padding-top: 3rem;
 }
 
 .form-container .form-cards {
     width: 40%;
+    padding: 0 1rem;
+    display: flex;
+    gap: 1rem;
+    flex-direction: column;
+}
+
+.form-container .form-cards > p {
+    font-size: large;
+    margin: 1rem 0;
+}
+
+.form-container .form-cards .form-card {
+    width: 100%;
+    display: flex;
+    gap: 1rem;
+    padding: 1rem;
+    backdrop-filter: blur(0);
+}
+
+.form-card button{
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    min-width: 40px;
+    flex: 0 0 40px;
+    background-color: var(--sixthColor);
+    border: 0;
+}
+
+.form-card button span {
+    font-size: 1.5rem;
+}
+
+.form-card div p {
+    margin: .5rem 0;
+    font-size: small;
+}
+
+.form-card div a{
+    text-decoration: none;
+    color: var(--starColor);
+    font-size: small;
 }
 
 .form-container .form-input {
     width: 60%;
+    padding: 0 2rem;
 }
 
 /* From Uiverse.io by Danishrehman786 */ 
