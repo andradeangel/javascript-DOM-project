@@ -615,38 +615,43 @@
               </div>
               <p><strong>Connect with me</strong></p>
               <div class="redes">
-                <buttom>
-                  <span class="material-symbols-outlined">code</span>
+                <button class="presentacion">
+                  <i class="fa-brands fa-github"></i>
                   GitHub
-                </buttom>
-                <buttom>
+                </button>
+                <button class="presentacion">
                   <i class="fa-brands fa-linkedin"></i>
                   LinkeIn
-                </buttom>
-                <buttom>
+                </button>
+                <button class="presentacion">
                   <i class="fa-brands fa-x-twitter"></i>
                   X
-                </buttom>
+                </button>
               </div>
-              <div class="start-card">
-                <code>
-                  <!-- Always ready to code -->
-                  const status = "Available";
-                </code>
+              <div class="start-card presentacion">
+                <code>&lt;!-- Always ready to code -->
+                  const status = "Available";</code>
               </div>
             </div>
-            <div class="form-input">
+            <div class="form-input presentacion">
               <h3>Send a Message</h3>
               <form>
-                <label>Your Name</label>
-                <input>
-                <label>Email Address</label>
-                <input>
-                <label>Project Type / Subject</label>
-                <input>
-                <label>Message</label>
-                <input>
-                <input type="submit">Send Message<
+                <label for="name">Your Name</label>
+                <label for="email">Email Address</label>
+                <input type="text" id="name" placeholder=" 👤 Homer Thompson">
+                <input type="email" id="email" placeholder=" ✉ thompson@example.com">
+                <label for="project" class="large">What can I help you with?</label>
+                <select id="project" class="large" name="project">
+                  <option value="web-dev"> - Web Development</option>
+                  <option value="ai"> - AI / Generative AI</option>
+                  <option value="consulting"> - Consulting / Guidance</option>
+                  <option value="audiovisual"> - Audiovisual / Content</option>
+                  <option value="collaboration"> - Collaboration</option>
+                  <option value="other"> - Other</option>
+                </select>
+                <label class="large">Message</label>
+                <textarea class="large" placeholder="📝 Tell me about your project or idea"></textarea>
+                <input class="large" type="submit" value="Send Message ➤">
               </form>
             </div>
           </div>

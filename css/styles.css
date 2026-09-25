@@ -1812,12 +1812,15 @@ main {
     display: flex;
     padding-top: 3rem;
 }
+.form-container {
+    gap: 3rem;
+}
 
 .form-container .form-cards {
     width: 40%;
     padding: 0 1rem;
     display: flex;
-    gap: 1rem;
+    gap: .7rem;
     flex-direction: column;
 }
 
@@ -1861,7 +1864,72 @@ main {
 
 .form-container .form-input {
     width: 60%;
-    padding: 0 2rem;
+}
+
+.form-cards .redes {
+    display: flex;
+    justify-content: space-around;
+}
+
+.form-cards .redes > button {
+    width: 4rem;
+    height: 4rem;
+    font-size: .8rem;
+    display: flex;
+    flex-direction: column;
+    padding: .2rem;
+    color: var(--textColor);
+    justify-content: center;
+    gap: .3rem;
+    backdrop-filter: blur(0);
+}
+
+.form-cards .redes button i {
+    font-size: 1.5rem;
+    color: var(--textColor);
+}
+
+.form-cards .start-card {
+    backdrop-filter: blur(0);
+    background-image: url(../assets/img/code-background.png);
+    background-size: cover;
+    margin-top: 1rem;
+    width: 100%;
+    font-size: small;
+    text-align: center;
+    padding: 2rem .5rem;
+}
+
+.form-input {
+    backdrop-filter: blur(0);
+    font-size: larger;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-input:hover {
+    transform: none;
+}
+
+.form-input form{
+    padding: 1rem 0;
+    font-size: small;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: .5rem 1rem;
+}
+
+.form-input form .large {
+    grid-column: 1 / 3;
+}
+
+.form-input form label {
+    display: block;
+}
+
+.form-input form input {
+    display: block;
+    padding: .5rem .8rem;
 }
 
 /* From Uiverse.io by Danishrehman786 */ 
@@ -4053,7 +4121,6 @@ footer {
 }
 #title span {
   background: -webkit-linear-gradient(white, #38495a);
-  -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
