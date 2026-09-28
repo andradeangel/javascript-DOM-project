@@ -465,3 +465,12 @@ function showPage(totalPages, pagesCards){
     totalPagesArray[0].click();
 }
 
+//Funcionalidad para escuchar los clicks de los cards de redes de contacto
+let cardsRedes = document.querySelectorAll(".redes button");
+
+cardsRedes.forEach(button => {
+    button.addEventListener("click", function(event){
+        let link = event.target.dataset.link;
+        window.open(link, "_blank");
+    });
+});
