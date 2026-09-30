@@ -3,6 +3,7 @@ emailjs.init({
 });
 
 const form = document.querySelector("#contact-form");
+const message = document.querySelector(".exit-message");
 form.addEventListener("submit", function(event) {
     event.preventDefault();
 
@@ -13,9 +14,15 @@ form.addEventListener("submit", function(event) {
     )
     .then(function() {
         console.log("Correo enviado correctamente");
+        form.reset();
+
+        message.style.height = "5rem";
+
+        setTimeout(() => {
+            message.style.height = "0";
+        }, 5000);
     })
     .catch(function(error) {
         console.log("Error al enviar:", error);
     });
-
 });

@@ -1994,6 +1994,12 @@ main {
     transition: all 0.3s ease;
 }
 
+.form-input .exit-message {
+    height: 0;
+    overflow: hidden;
+    transition: height .4s ease;
+}
+
 @media (max-width: 900px) {
     .form-container {
         flex-direction: column;
@@ -2168,16 +2174,49 @@ main {
 /* ESTILOS DE FOOTER */
 
 footer {
+    height: 30rem;
     position: relative;
-    height: 100px;
     background: var(--fourthColor);
+    width: 100%;
+    background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+    overflow: hidden;
 }
-/* From Uiverse.io by amir_6539 */ 
-.footer {
-  height: 100%;
-  width: 100%;
-  background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
-  overflow: hidden;
+
+.footer-container {
+    display: flex;
+    width: clamp(250px, 80%, 1200px);
+    margin: auto;
+}
+
+.footer-container .text-footer {
+    padding: 3rem 1rem;
+    width: 50%;
+}
+
+.footer-container .text-footer h2 {
+    margin-bottom: 1rem;
+    font-size: xxx-large;
+}
+
+.footer-container .text-footer .social-media {
+    margin: 2rem 0;
+    display: flex;
+    align-items: ;
+}
+
+.footer-container .text-footer .social-media a {
+    display: inline-block;
+    font-size: xx-large;
+    color: var(--starColor);
+}
+
+.footer-container .img-footer {
+    padding: 3rem 1rem;
+    width: 50%;
+}
+
+.footer-container .img-footer img {
+    width: clamp(100px, 100%, 350px);
 }
 
 #stars {
