@@ -2190,7 +2190,7 @@ footer {
 
 .footer-container .text-footer {
     padding: 3rem 1rem;
-    width: 50%;
+    width: 60%;
 }
 
 .footer-container .text-footer h2 {
@@ -2204,6 +2204,22 @@ footer {
     align-items: ;
 }
 
+.text-footer .my-text {
+    color: var(--textColor);
+    font-size: xx-small;
+}
+
+.text-footer > button {
+    display: inline-block;
+    text-decoration: none;
+    color: var(--starColor);
+    font-size: xx-small;
+    margin: 1rem 0;
+    background-color: transparent;
+    border: 0;
+    cursor: pointer;
+}
+
 .footer-container .text-footer .social-media a {
     display: inline-block;
     font-size: xx-large;
@@ -2211,12 +2227,38 @@ footer {
 }
 
 .footer-container .img-footer {
-    padding: 3rem 1rem;
-    width: 50%;
+    padding: 3rem 0 3rem 1rem;
+    width: 40%;
+    text-align: end;
+}
+
+.footer-container .img-footer .ok {
+    text-align: center;
+    height: 0;
+    overflow: hidden;
+    transition: height .4s ease;
+    font-size: medium;
 }
 
 .footer-container .img-footer img {
     width: clamp(100px, 100%, 350px);
+    filter: drop-shadow(0 0 10px var(--textColor));
+}
+
+.footer-container .img-footer form {
+    display: flex;
+    gap: 1rem;
+    justify-content: end;
+    height: 0;
+    overflow: hidden;
+    transition: height .4s ease;
+}
+
+.footer-container .img-footer form input {
+    padding: .5rem .3rem;
+    border-radius: var(--radio);
+    border: none;
+    width: 100%;
 }
 
 #stars {

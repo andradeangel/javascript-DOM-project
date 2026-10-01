@@ -474,3 +474,24 @@ cardsRedes.forEach(button => {
         window.open(link, "_blank");
     });
 });
+
+//Funcionalidad para enviar mensaje secreto
+let secretButton = document.querySelector(".secret-submit");
+let secretForm = document.getElementById("secretForm");
+let ok = document.querySelector(".ok");
+secretButton.addEventListener("click", function(event){
+    if(secretForm.style.height === "0px" || secretForm.style.height === ""){
+        secretForm.style.height = "2rem";
+    } else {
+        secretForm.style.height = "0";
+    }
+});
+secretForm.addEventListener("submit", function(event){
+    event.preventDefault();
+    secretForm.style.height = "0";
+    secretForm.reset();
+    ok.style.height = "2rem";
+    setTimeout(() => {
+        ok.style.height = "0";
+    }, 4000);
+});
