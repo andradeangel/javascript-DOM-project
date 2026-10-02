@@ -478,20 +478,43 @@ cardsRedes.forEach(button => {
 //Funcionalidad para enviar mensaje secreto
 let secretButton = document.querySelector(".secret-submit");
 let secretForm = document.getElementById("secretForm");
+let secretInput = document.getElementById("secretInput");
 let ok = document.querySelector(".ok");
-secretButton.addEventListener("click", function(event){
-    if(secretForm.style.height === "0px" || secretForm.style.height === ""){
+
+const WORKER_URL = "https://secretmsg.andradevelop.workers.dev/"; // pon tu URL real
+
+secretButton.addEventListener("click", function (event) {
+    if (secretForm.style.height === "0px" || secretForm.style.height === "") {
         secretForm.style.height = "2rem";
     } else {
         secretForm.style.height = "0";
     }
 });
-secretForm.addEventListener("submit", function(event){
+
+secretForm.addEventListener("submit", async function (event) {
     event.preventDefault();
-    secretForm.style.height = "0";
-    secretForm.reset();
-    ok.style.height = "2rem";
-    setTimeout(() => {
-        ok.style.height = "0";
-    }, 4000);
+
+    // Guarda el mensaje ANTES de hacer reset()
+    const message = secretInput.value.trim();
+    if (!message) return;
+
+    try {
+        const res = await fetch(WORKER_URL, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ message }),
+        });
+
+        if (!res.ok) throw new Error("Error " + res.status);
+
+        // Solo si se envió bien: tu animación de siempre
+        secretForm.style.height = "0";
+        secretForm.reset();
+        ok.style.height = "2rem";
+        setTimeout(() => {
+            ok.style.height = "0";
+        }, 4000);
+    } catch (err) {
+        console.error("No se pudo enviar", err);
+    }
 });
