@@ -16,10 +16,14 @@ form.addEventListener("submit", function(event) {
         console.log("Correo enviado correctamente");
         form.reset();
 
-        message.style.height = "5rem";
+        message.style.height = "4rem";
+        if (!window.matchMedia("(max-width: 600px)").matches) {
+            form.style.height = "80%";
+        }
 
         setTimeout(() => {
             message.style.height = "0";
+            form.style.removeProperty("height");
         }, 5000);
     })
     .catch(function(error) {

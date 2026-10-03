@@ -1,8 +1,8 @@
 // ==========================================
 // COMPORTAMIENTO DEL MENU
 // ==========================================
+const soundMenu = new Audio("./assets/audio/swooshMenu.mp3");
 function menuSwitch() {
-    const soundMenu = new Audio("./assets/audio/swooshMenu.mp3");
     const switchMenu = document.getElementById("options");
     const logoText = document.getElementById("logoText");
     const navbar = document.getElementById("navbar");
@@ -534,3 +534,8 @@ function reorderFooter() {
 }
 reorderFooter();
 window.addEventListener("resize", reorderFooter);
+
+function sound(){
+    soundMenu.currentTime = 0;
+    soundMenu.play();
+}
