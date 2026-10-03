@@ -518,3 +518,19 @@ secretForm.addEventListener("submit", async function (event) {
         console.error("No se pudo enviar", err);
     }
 });
+
+//Layout del footer
+let footer = document.querySelector(".footer-container");
+let rrss = document.querySelector(".social-media");
+let textFooter = document.querySelector(".text-footer");
+let imgFooter = document.querySelector(".img-footer");
+
+function reorderFooter() {
+    if (window.innerWidth <= 900) {
+        rrss.before(imgFooter);
+    } else {
+        footer.append(imgFooter);
+    }
+}
+reorderFooter();
+window.addEventListener("resize", reorderFooter);

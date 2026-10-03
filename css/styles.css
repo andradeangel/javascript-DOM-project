@@ -2201,7 +2201,6 @@ footer {
 .footer-container .text-footer .social-media {
     margin: 2rem 0;
     display: flex;
-    align-items: ;
 }
 
 .text-footer .my-text {
@@ -2263,6 +2262,32 @@ footer {
 
 .footer-container .img-footer form input[type="submit"] {
     cursor: pointer;
+}
+
+@media (max-width: 900px) {
+    footer {
+        height: auto;
+    }
+
+    .footer-container .text-footer {
+        width: 100%;
+    }
+
+    .footer-container .text-footer .social-media {
+        justify-content: center;
+        margin: 1rem 0 2rem 0;
+    }
+
+    .footer-container .img-footer {
+        width: 100%;
+        text-align: center;
+        padding: 0;
+        margin: 2rem 0 0 0;
+    }
+
+    .footer-container .text-footer img {
+        width: clamp(100px, 35%, 350px);
+    }
 }
 
 #stars {
