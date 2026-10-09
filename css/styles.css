@@ -2170,6 +2170,7 @@ main {
   transform: translate(-50%, -50%);
   animation: pulse 3.5s ease-in-out infinite alternate;
   z-index: 1;
+  pointer-events: none;
 }
 
 @keyframes borderFlow {
