@@ -8,6 +8,10 @@
     --starColor: #00c3ff;
     --radio: .1rem;
     --textColor: #F2F2F2;
+    --void-0: #121213;
+    --ink-secondary: #b1b1b3;
+    --aurora: #82d25d; /* cold end of the ramp */
+    --nebula: #15ad70; /* hot end, under the cursor */
 }
 
 * {
@@ -343,7 +347,76 @@ main {
     height: 100dvh;
     object-fit: contain;
     object-position: center;
-    filter: saturate(0);
+    filter: saturate(.2) contrast(1.2) brightness(0.5);
+}
+
+
+
+
+
+
+
+
+
+.stage {
+  position: absolute;
+  top: clamp(5rem, 25vh, 15rem);
+  left: 50%;
+  z-index: 2;
+  display: grid;
+  justify-items: center;
+  text-align: center;
+  gap: 3rem;
+  width: min(92vw, 900px);
+  container-type: inline-size;
+  transform: translateX(-50%);
+}
+
+.title {
+  display: block;
+  width: min(92vw, 900px);
+  margin: 0;
+  /* Scales with the stage, so the word fills the preview at any size */
+  font-size: clamp(2rem, 5cqw, 8rem);
+  line-height: 1;
+  user-select: none;
+}
+
+.portada-section .stage > h1 {
+    text-shadow: 0 2px 8px #000;
+    color: #00c3ff;
+}
+
+.title > span {
+    display: inline-block;
+}
+
+@supports (-webkit-background-clip: text) or (background-clip: text) {
+  .title > span {
+    background: linear-gradient(
+      90deg,
+      #00aaff 1%,
+      var(--starColor) 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
+
+@media (max-width: 900px) {
+  .title {
+    font-size: clamp(1.5rem, 8cqw, 6rem);
+  }
+
+  .stage {
+    text-align: start;
+  }
+
+  .portada-section .stage > h1 {
+    font-size: clamp(1.5rem, 6cqw, 6rem);
+    left: 52%;
+  }
 }
 
 .matrix-effect {
@@ -534,8 +607,6 @@ main {
     margin-bottom: 1rem;
     font-weight: 700;
     letter-spacing: -0.5px;
-    /* Animación de aparición */
-    animation: fadeInUp 1s ease-out;
     /* Efecto de brillo sutil */
     text-shadow: 0 0 20px black;
 }
@@ -604,15 +675,11 @@ main {
     text-wrap: balance;
     margin: 1rem 0;
     opacity: 0.95;
-    /* Animación de aparición con delay */
-    animation: fadeInUp 1s ease-out 0.2s backwards;
 }
 
 .presentacion-buttons {
     display: flex;
     gap: 10px;
-    /* Animación de aparición con delay */
-    animation: fadeInUp 1s ease-out 0.4s backwards;
 }
 
 
@@ -651,8 +718,6 @@ main {
     border-radius: var(--radio);
     /* Transición suave */
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    /* Animación de aparición */
-    animation: fadeInScale 1s ease-out 0.3s backwards;
 }
 
 .presentacion-container img:hover {

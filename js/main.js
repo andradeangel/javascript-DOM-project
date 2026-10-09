@@ -628,3 +628,6 @@ function sound(){
     soundMenu.currentTime = 0;
     soundMenu.play();
 }
+
+//Obtener el año actual para el footer
+document.querySelector("#year").textContent = new Date().getFullYear();
