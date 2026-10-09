@@ -37,7 +37,9 @@ function menuSwitch() {
     // String con todos los caracteres que pueden aparecer en el efecto Matrix
     const matrixChars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%^&*()_+-=[]{}|;:,.<>?アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン';
     const chars = matrixChars.split('');
-    const fontSize = 16;
+    const isMobile = window.matchMedia('(max-width: 600px)').matches;
+    const fontSize = isMobile ? 20 : 16;
+    const trailLength = isMobile ? 10 : 14;
 
     // Número de columnas de caracteres (se calcula después)
     let columns = 0;
@@ -102,8 +104,6 @@ function menuSwitch() {
             // Posición Y actual de la "cabeza" de esta columna
             const currentY = drops[i];
             // Longitud del rastro (cuántos caracteres se dibujan por columna)
-            const trailLength = 20;
-
             // Dibujar cada carácter del rastro
             for (let j = 0; j < trailLength; j++) {
                 // Calcular la posición Y de este carácter en el rastro
@@ -125,7 +125,7 @@ function menuSwitch() {
                         const dy = baseY - mouse.y;
                         // Calcular distancia euclidiana usando el teorema de Pitágoras
                         // distance = √(dx² + dy²)
-                        const distance = Math.sqrt(dx * dx + dy * dy);
+                        const distance = Math.hypot(dx, dy);
 
                         // Radio de influencia del efecto magneto (en píxeles)
                         const magnetRadius = 200;
@@ -163,9 +163,9 @@ function menuSwitch() {
                     const y = baseY + offsetY;
 
                     // Calcular distancia desde la posición FINAL al mouse
-                    const dx = mouse.x - x;
-                    const dy = mouse.y - y;
-                    const distance = Math.sqrt(dx * dx + dy * dy);
+                    const distance = mouse.x === undefined
+                        ? Infinity
+                        : Math.hypot(mouse.x - x, mouse.y - y);
 
                     // Radio de iluminación
                     const lightRadius = 100;
@@ -226,7 +226,7 @@ function menuSwitch() {
             }
 
             // Incrementar la posición Y de la columna (hacerla caer)
-            drops[i] += 0.3;
+            drops[i] += isMobile ? 0.45 : 0.6;
         }
 
         // Solo dibujar si el mouse está sobre el canvas
@@ -255,15 +255,104 @@ function menuSwitch() {
         }
     }
 
-    function animate() {
-        drawMatrix();
+    let animationFrameId = null;
+    let lastFrameTime = 0;
+    let isCanvasVisible = !('IntersectionObserver' in window);
+    const frameInterval = 1000 / 30;
 
-        // Solicitar al navegador que llame a animate() en el próximo frame
-        requestAnimationFrame(animate);
+    function animate(timestamp) {
+        animationFrameId = null;
+        if (document.hidden || !isCanvasVisible) return;
+
+        if (timestamp - lastFrameTime >= frameInterval) {
+            drawMatrix();
+            lastFrameTime = timestamp;
+        }
+
+        animationFrameId = requestAnimationFrame(animate);
     }
-    animate();
+
+    function updateAnimation() {
+        if (document.hidden || !isCanvasVisible) {
+            if (animationFrameId !== null) {
+                cancelAnimationFrame(animationFrameId);
+                animationFrameId = null;
+            }
+            return;
+        }
+
+        if (animationFrameId === null) {
+            animationFrameId = requestAnimationFrame(animate);
+        }
+    }
+
+    if ('IntersectionObserver' in window) {
+        const canvasObserver = new IntersectionObserver(([entry]) => {
+            isCanvasVisible = entry.isIntersecting;
+            updateAnimation();
+        });
+        canvasObserver.observe(canvas);
+    }
+
+    document.addEventListener('visibilitychange', updateAnimation);
+    updateAnimation();
 
 })(); // Fin de la IIFE - Se ejecuta inmediatamente
+
+// ============================================
+// CARGA DIFERIDA DEL VIDEO Y FONDOS ANIMADOS
+// ============================================
+const aboutVideo = document.querySelector('.about-section video');
+if (aboutVideo) {
+    let videoLoaded = false;
+
+    function playAboutVideo() {
+        if (!videoLoaded) {
+            aboutVideo.src = aboutVideo.dataset.src;
+            aboutVideo.load();
+            videoLoaded = true;
+        }
+
+        aboutVideo.play().catch(error => {
+            if (error.name !== 'AbortError') {
+                console.error('No se pudo reproducir el video de About:', error);
+            }
+        });
+    }
+
+    if ('IntersectionObserver' in window) {
+        const videoObserver = new IntersectionObserver(([entry]) => {
+            if (entry.isIntersecting) {
+                playAboutVideo();
+            } else {
+                aboutVideo.pause();
+            }
+        }, { threshold: 0.1 });
+        videoObserver.observe(aboutVideo);
+    } else {
+        playAboutVideo();
+    }
+
+    document.addEventListener('visibilitychange', () => {
+        if (document.hidden) {
+            aboutVideo.pause();
+            return;
+        }
+
+        const bounds = aboutVideo.getBoundingClientRect();
+        if (bounds.top < window.innerHeight && bounds.bottom > 0) {
+            playAboutVideo();
+        }
+    });
+}
+
+const animatedCreations = document.querySelector('.creations-section');
+if (animatedCreations && 'IntersectionObserver' in window) {
+    const creationsObserver = new IntersectionObserver(([entry]) => {
+        animatedCreations.classList.toggle('is-visible', entry.isIntersecting);
+    }, { rootMargin: '100px' });
+    creationsObserver.observe(animatedCreations);
+}
 
 // ============================================
 // ORDENAMIENTO DEL ABOUT

@@ -25,7 +25,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&display=swap" rel="stylesheet">
   <link rel="icon" href="assets/img/logo.jpg">
   <link rel="stylesheet" href="css/styles.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"/>
   <link rel="stylesheet"href="https://unpkg.com/lenis@1.3.26/dist/lenis.css"/>
 </head>
@@ -127,7 +126,8 @@
       <div class="portada">
         <picture>
           <source media="(max-width: 600px)" srcset="assets/img/portada-short.jpg">
-          <img src="assets/img/portada-large.jpg" alt="Foto de portada" title="Foto de portada" name="portada">
+          <img src="assets/img/portada-large.jpg" alt="Foto de portada" title="Foto de portada" name="portada"
+            fetchpriority="high">
         </picture>
       </div>
       <!-- TARJETAS DE LA SECCION HERO -->
@@ -147,7 +147,8 @@
 
     <!-- SECCION ABOUT -->
     <section class="about-section" id="about">
-      <video src="assets/video/video-about.mp4" autoplay loop muted></video>
+      <video data-src="assets/video/video-about.mp4" autoplay loop muted playsinline webkit-playsinline
+        preload="none" aria-hidden="true"></video>
       <div class="presentacion-container">
         <div class="presentacion">
           <h2>Systems Engineer - Student of Everything</h2>
@@ -197,7 +198,7 @@
         <div class="card">
           <b></b>
           <img src="assets/img/work-presentation.png" alt="Imagen trabajando" title="Angel trabajando"
-            name="work-presentation">
+            name="work-presentation" loading="lazy" decoding="async">
         </div>
       </div>
 
@@ -316,7 +317,7 @@
               </a>
             </div>
             <div class="projectPicture">
-              <img src="assets/img/projects/constBygger.png" alt="Image project web page business">
+              <img src="assets/img/projects/constBygger.png" alt="Image project web page business" loading="lazy" decoding="async">
             </div>
             <p>A website to promote services and products, while also employing marketing strategies to improve the positioning of the company and its offerings.</p>
             <div class="project-tech">
@@ -337,7 +338,7 @@
               </a>
             </div>
             <div class="projectPicture">
-              <img src="assets/img/projects/artBoliviana.png" alt="Image project web page business">
+              <img src="assets/img/projects/artBoliviana.png" alt="Image project web page business" loading="lazy" decoding="async">
             </div>
             <p>Online store system with a manual payment gateway via QR code for artisanal products to everyone from Artesanía Boliviana in La Paz.</p>
             <div class="project-tech">
@@ -360,7 +361,7 @@
               </a>
             </div>
             <div class="projectPicture">
-              <img src="assets/img/projects/laPuerta.png" alt="Image Scape Rooms La Puerta">
+              <img src="assets/img/projects/laPuerta.png" alt="Image Scape Rooms La Puerta" loading="lazy" decoding="async">
             </div>
             <p>An entertainment system featuring mini-challenges and puzzles for players who log in using an invitation code, along with event monitoring by Game Masters and administrators.</p>
             <div class="project-tech">
@@ -383,7 +384,7 @@
               </a>
             </div>
             <div class="projectPicture">
-              <img src="assets/img/projects/colDoraSm.png" alt="Image project web page business">
+              <img src="assets/img/projects/colDoraSm.png" alt="Image project web page business" loading="lazy" decoding="async">
             </div>
             <p>A PHP-based school system designed for teachers to record grades and attendance, and for parents to view detailed data regarding their respective children.</p>
             <div class="project-tech">
@@ -406,7 +407,7 @@
               </a>
             </div>
             <div class="projectPicture">
-              <img src="assets/img/projects/institutoAme.png" alt="Image project web page business">
+              <img src="assets/img/projects/institutoAme.png" alt="Image project web page business" loading="lazy" decoding="async">
             </div>
             <p>System for the Amerist Technical Institute to manage student licenses, improving the transparency and availability of student permits.</p>
             <div class="project-tech">
@@ -429,7 +430,7 @@
               </a>
             </div>
             <div class="projectPicture">
-              <img src="assets/img/projects/juCoffee.png" alt="Image project web page coffee shop">
+              <img src="assets/img/projects/juCoffee.png" alt="Image project web page coffee shop" loading="lazy" decoding="async">
             </div>
             <p>To continue working with one of the most widely used and popular CSS frameworks, I will build a project using it to further my learning.</p>
             <div class="project-tech">
@@ -449,7 +450,7 @@
               </a>
             </div>
             <div class="projectPicture">
-              <img src="assets/img/projects/vidaActiva.png" alt="Image project life style">
+              <img src="assets/img/projects/vidaActiva.png" alt="Image project life style" loading="lazy" decoding="async">
             </div>
             <p>A practice website utilizing HTML and CSS technologies; the project's purpose is to apply knowledge gained in CSS (while continuing to learn HTML) and to maintain a visual record of the learning process.</p>
             <div class="project-tech">
@@ -468,7 +469,7 @@
               </a>
             </div>
             <div class="projectPicture">
-              <img src="assets/img/projects/guitars.png" alt="Image project web page Guitars">
+              <img src="assets/img/projects/guitars.png" alt="Image project web page Guitars" loading="lazy" decoding="async">
             </div>
             <p>A webpage built exclusively using HTML, designed to showcase what can be achieved using only this core language for web development.</p>
             <div class="project-tech">
@@ -486,7 +487,7 @@
               </a>
             </div>
             <div class="projectPicture">
-              <img src="assets/img/projects/guitars.png" alt="Image project web page Guitars">
+              <img src="assets/img/projects/guitars.png" alt="Image project web page Guitars" loading="lazy" decoding="async">
             </div>
             <p>A webpage built exclusively using HTML, designed to showcase what can be achieved using only this core language for web development.</p>
             <div class="project-tech">
@@ -504,26 +505,26 @@
           <h3>Stack:</h3>
           <div class="skills-carousel">
             <div class="skills-track">
-              <img src="assets/img/stack/html-logo.png" alt="html-logo" title="HTML" width="40" height="40">
-              <img src="assets/img/stack/css-logo.png" alt="css-logo" title="CSS" width="40" height="40">
-              <img src="assets/img/stack/bootstrap-logo.png" alt="bootstrap-logo" title="Bootstrap" width="40" height="40">
-              <img src="assets/img/stack/js-logo.png" alt="js-logo" title="JavaScript" width="40" height="40">
-              <img src="assets/img/stack/wordpress-logo.png" alt="wordpress-logo" title="WordPress" width="40" height="40">
-              <img src="assets/img/stack/git-logo.png" alt="git-logo" title="Git" width="40" height="40">
-              <img src="assets/img/stack/github-logo.png" alt="github-logo" title="GitHub" width="40" height="40">
-              <img src="assets/img/stack/visualcode-logo.png" alt="visualcode-logo" title="Visual Studio Code" width="40" height="40">
-              <img src="assets/img/stack/stitch-logo.png" alt="stitch-logo" title="Stitch" width="40" height="40">
-              <img src="assets/img/stack/cursor-logo.png" alt="cursor-logo" title="Cursor" width="40" height="40">
-              <img src="assets/img/stack/html-logo.png" alt="html-logo" title="HTML" width="40" height="40">
-              <img src="assets/img/stack/css-logo.png" alt="css-logo" title="CSS" width="40" height="40">
-              <img src="assets/img/stack/bootstrap-logo.png" alt="bootstrap-logo" title="Bootstrap" width="40" height="40">
-              <img src="assets/img/stack/js-logo.png" alt="js-logo" title="JavaScript" width="40" height="40">
-              <img src="assets/img/stack/wordpress-logo.png" alt="wordpress-logo" title="WordPress" width="40" height="40">
-              <img src="assets/img/stack/git-logo.png" alt="git-logo" title="Git" width="40" height="40">
-              <img src="assets/img/stack/github-logo.png" alt="github-logo" title="GitHub" width="40" height="40">
-              <img src="assets/img/stack/visualcode-logo.png" alt="visualcode-logo" title="Visual Studio Code" width="40" height="40">
-              <img src="assets/img/stack/stitch-logo.png" alt="stitch-logo" title="Stitch" width="40" height="40">
-              <img src="assets/img/stack/cursor-logo.png" alt="cursor-logo" title="Cursor" width="40" height="40">
+              <img src="assets/img/stack/html-logo.png" alt="html-logo" title="HTML" width="40" height="40" loading="lazy" decoding="async">
+              <img src="assets/img/stack/css-logo.png" alt="css-logo" title="CSS" width="40" height="40" loading="lazy" decoding="async">
+              <img src="assets/img/stack/bootstrap-logo.png" alt="bootstrap-logo" title="Bootstrap" width="40" height="40" loading="lazy" decoding="async">
+              <img src="assets/img/stack/js-logo.png" alt="js-logo" title="JavaScript" width="40" height="40" loading="lazy" decoding="async">
+              <img src="assets/img/stack/wordpress-logo.png" alt="wordpress-logo" title="WordPress" width="40" height="40" loading="lazy" decoding="async">
+              <img src="assets/img/stack/git-logo.png" alt="git-logo" title="Git" width="40" height="40" loading="lazy" decoding="async">
+              <img src="assets/img/stack/github-logo.png" alt="github-logo" title="GitHub" width="40" height="40" loading="lazy" decoding="async">
+              <img src="assets/img/stack/visualcode-logo.png" alt="visualcode-logo" title="Visual Studio Code" width="40" height="40" loading="lazy" decoding="async">
+              <img src="assets/img/stack/stitch-logo.png" alt="stitch-logo" title="Stitch" width="40" height="40" loading="lazy" decoding="async">
+              <img src="assets/img/stack/cursor-logo.png" alt="cursor-logo" title="Cursor" width="40" height="40" loading="lazy" decoding="async">
+              <img src="assets/img/stack/html-logo.png" alt="html-logo" title="HTML" width="40" height="40" loading="lazy" decoding="async">
+              <img src="assets/img/stack/css-logo.png" alt="css-logo" title="CSS" width="40" height="40" loading="lazy" decoding="async">
+              <img src="assets/img/stack/bootstrap-logo.png" alt="bootstrap-logo" title="Bootstrap" width="40" height="40" loading="lazy" decoding="async">
+              <img src="assets/img/stack/js-logo.png" alt="js-logo" title="JavaScript" width="40" height="40" loading="lazy" decoding="async">
+              <img src="assets/img/stack/wordpress-logo.png" alt="wordpress-logo" title="WordPress" width="40" height="40" loading="lazy" decoding="async">
+              <img src="assets/img/stack/git-logo.png" alt="git-logo" title="Git" width="40" height="40" loading="lazy" decoding="async">
+              <img src="assets/img/stack/github-logo.png" alt="github-logo" title="GitHub" width="40" height="40" loading="lazy" decoding="async">
+              <img src="assets/img/stack/visualcode-logo.png" alt="visualcode-logo" title="Visual Studio Code" width="40" height="40" loading="lazy" decoding="async">
+              <img src="assets/img/stack/stitch-logo.png" alt="stitch-logo" title="Stitch" width="40" height="40" loading="lazy" decoding="async">
+              <img src="assets/img/stack/cursor-logo.png" alt="cursor-logo" title="Cursor" width="40" height="40" loading="lazy" decoding="async">
             </div>
           </div>
         </div>
@@ -734,7 +735,8 @@
         <p><span class="material-symbols-outlined">folder_code</span> Andrade Ángel &copy; 2026 All rights reserved.</p>
       </div>
       <div class="img-footer">
-        <img src="assets/img/logo-fondo.png" alt="image logo" title="Logo" name="logo-footer">
+        <img src="assets/img/logo-fondo.png" alt="image logo" title="Logo" name="logo-footer"
+          loading="lazy" decoding="async">
         <p class="ok">OK!</p>
         <form id="secretForm">
           <input type="text" id="secretInput" placeholder="..." required>
