@@ -2260,7 +2260,120 @@ main {
 
 /* FIN DE LOS ESTILOS SECCION CONTACT */
 
-/* FIN DE ESTILOS DE CONTENIDO PRINCIPAL */
+/* ==========================================
+   SCROLL REVEAL ANIMATIONS
+   ========================================== */
+
+/* Estado inicial oculto para elementos que aparecerán al hacer scroll */
+.scroll-reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+                transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: opacity, transform;
+}
+
+/* Estado cuando el elemento entra en el viewport */
+.scroll-reveal.revealed {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Variante deslizamiento desde la izquierda */
+.scroll-reveal.slide-left {
+    opacity: 0;
+    transform: translateX(-60px);
+    transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+                transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.scroll-reveal.slide-left.revealed {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Variante deslizamiento desde la derecha */
+.scroll-reveal.slide-right {
+    opacity: 0;
+    transform: translateX(60px);
+    transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+                transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.scroll-reveal.slide-right.revealed {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Variante fade-in simple */
+.scroll-reveal.fade {
+    opacity: 0;
+    transition: opacity 1s ease;
+}
+
+.scroll-reveal.fade.revealed {
+    opacity: 1;
+}
+
+/* Variante zoom-in suave */
+.scroll-reveal.zoom-in {
+    opacity: 0;
+    transform: scale(0.85);
+    transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+                transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.scroll-reveal.zoom-in.revealed {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* Efecto cascada para elementos internos: cada hijo aparece con delay escalonado */
+.scroll-reveal.revealed > .scroll-reveal-child {
+    animation: revealCascade 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.scroll-reveal-child {
+    opacity: 0;
+    transform: translateY(25px);
+}
+
+@keyframes revealCascade {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Delay escalonado para los children */
+.scroll-reveal.revealed > .scroll-reveal-child:nth-child(1) { animation-delay: 0.1s; }
+.scroll-reveal.revealed > .scroll-reveal-child:nth-child(2) { animation-delay: 0.2s; }
+.scroll-reveal.revealed > .scroll-reveal-child:nth-child(3) { animation-delay: 0.3s; }
+.scroll-reveal.revealed > .scroll-reveal-child:nth-child(4) { animation-delay: 0.4s; }
+.scroll-reveal.revealed > .scroll-reveal-child:nth-child(5) { animation-delay: 0.5s; }
+.scroll-reveal.revealed > .scroll-reveal-child:nth-child(6) { animation-delay: 0.6s; }
+.scroll-reveal.revealed > .scroll-reveal-child:nth-child(7) { animation-delay: 0.7s; }
+.scroll-reveal.revealed > .scroll-reveal-child:nth-child(8) { animation-delay: 0.8s; }
+.scroll-reveal.revealed > .scroll-reveal-child:nth-child(9) { animation-delay: 0.9s; }
+.scroll-reveal.revealed > .scroll-reveal-child:nth-child(10) { animation-delay: 1s; }
+
+/* Los elementos del grid de proyectos aparecen en cascada */
+.my-projects-grid.revealed .scroll-reveal-child {
+    animation: revealCascade 0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* No animar en prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+    .scroll-reveal,
+    .scroll-reveal-child {
+        opacity: 1 !important;
+        transform: none !important;
+        animation: none !important;
+        transition: none !important;
+    }
+}
+
+/* FIN DE SCROLL REVEAL ANIMATIONS */
 
 
 /* ESTILOS DE FOOTER */

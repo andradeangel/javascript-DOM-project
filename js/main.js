@@ -314,11 +314,24 @@ if (aboutVideo) {
         }
 
         aboutVideo.play().catch(error => {
-            if (error.name !== 'AbortError') {
-                console.error('No se pudo reproducir el video de About:', error);
+            if (error.name === 'AbortError') {
+                return;
             }
+
+            if (error.name === 'NotAllowedError') {
+                console.info('El navegador bloqueó la reproducción automática del video de About.');
+                return;
+            }
+
+            console.error('No se pudo reproducir el video de About:', error);
         });
     }
+
+    aboutVideo.closest('.about-section').addEventListener('pointerdown', () => {
+        if (aboutVideo.paused) {
+            playAboutVideo();
+        }
+    }, { passive: true });
 
     if ('IntersectionObserver' in window) {
         const videoObserver = new IntersectionObserver(([entry]) => {
@@ -631,3 +644,109 @@ function sound(){
 
 //Obtener el año actual para el footer
 document.querySelector("#year").textContent = new Date().getFullYear();
+
+// ==========================================
+// SCROLL REVEAL - Animaciones al hacer scroll
+// ==========================================
+
+(function () {
+    'use strict';
+
+    // Configuración del IntersectionObserver
+    const revealOptions = {
+        root: null,
+        rootMargin: '0px 0px -10% 0px',  // Activa cuando el elemento está 10% visible abajo
+        threshold: 0.05  // Permite activar también elementos más altos que el viewport
+    };
+
+    // Elementos que se animarán al aparecer
+    const revealSelectors = [
+        '.creations-description',
+        '.my-projects-tags',
+        '.my-projects-card',
+        '.skills-container',
+        '.values',
+        '.contact-container',
+        '.description-container h2',
+        '.description-container p',
+        '.definition-cards',
+        '.definition-cards-objetives'
+    ];
+
+    // Función para inicializar las animaciones
+    function initScrollReveal() {
+        // Seleccionar todos los elementos con la clase scroll-reveal
+        // y también los elementos predefinidos
+        let elements = document.querySelectorAll('.scroll-reveal');
+
+        // Añadir clase scroll-reveal a elementos predefinidos que aún no la tienen
+        revealSelectors.forEach(selector => {
+            const els = document.querySelectorAll(selector);
+            els.forEach(el => {
+                if (!el.classList.contains('scroll-reveal')) {
+                    el.classList.add('scroll-reveal');
+                }
+                // Agregar children como scroll-reveal-child para cascada
+                const children = el.querySelectorAll(':scope > *:not(.scroll-reveal-child)');
+                children.forEach((child, index) => {
+                    if (child.children.length === 0 || child.tagName !== 'DIV') {
+                        child.classList.add('scroll-reveal-child');
+                    }
+                });
+            });
+            // Re-seleccionar después de añadir las clases
+            elements = document.querySelectorAll('.scroll-reveal');
+        });
+
+        // Crear el observer
+        if ('IntersectionObserver' in window) {
+            const revealObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('revealed');
+                        // Dejar de observar una vez revelado (optimización)
+                        revealObserver.unobserve(entry.target);
+                    }
+                });
+            }, revealOptions);
+
+            // Observar cada elemento
+            elements.forEach(el => {
+                revealObserver.observe(el);
+            });
+        } else {
+            // Fallback: si no hay IntersectionObserver, mostrar todo
+            elements.forEach(el => el.classList.add('revealed'));
+        }
+    }
+
+    // Inicializar cuando el DOM esté listo
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initScrollReveal);
+    } else {
+        initScrollReveal();
+    }
+
+    // Re-inicializar después de que se carguen los proyectos (para los nuevos elementos)
+    document.addEventListener('projectsLoaded', initScrollReveal);
+
+    // Función global para añadir animaciones a elementos dinámicos
+    window.addScrollReveal = function (elements) {
+        elements.forEach(el => {
+            if ('IntersectionObserver' in window) {
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('revealed');
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                }, revealOptions);
+                observer.observe(el);
+            } else {
+                el.classList.add('revealed');
+            }
+        });
+    };
+
+})();
