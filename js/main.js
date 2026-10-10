@@ -585,9 +585,11 @@ let ok = document.querySelector(".ok");
 
 const WORKER_URL = "https://secretmsg.andradevelop.workers.dev/";
 
+
 secretButton.addEventListener("click", function (event) {
     if (secretForm.style.height === "0px" || secretForm.style.height === "") {
-        secretForm.style.height = "4.5rem";
+        secretForm.classList.toggle("hidden");
+        // secretForm.style.height = "4.5rem";
     } else {
         secretForm.style.height = "0";
     }

@@ -2453,9 +2453,13 @@ footer {
     display: flex;
     gap: 1rem;
     justify-content: end;
-    height: 4.5rem;
-    overflow: hidden;
-    transition: height .4s ease;
+    height: auto;
+    /*overflow: visible;
+    transition: height .4s ease;*/
+}
+
+.footer-container .img-footer form.hidden {
+    display: none;
 }
 
 .footer-container .img-footer form input {
