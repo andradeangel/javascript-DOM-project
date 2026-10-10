@@ -28,30 +28,6 @@ The project demonstrates practical front-end development skills, with a focus on
 * **Git and GitHub** — Version control and project hosting.
 * **GitHub Pages / Custom Domain** — Website deployment.
 
-## 🚀 Getting Started
-
-### Prerequisites
-
-You only need a modern web browser and a code editor. No build tools or package installation are required for the front-end.
-
-### Run Locally
-
-1. Clone the repository:
-
-   ```bash
-   git clone https://github.com/andradeangel/javascript-DOM-project.git
-   ```
-
-2. Open the project folder:
-
-   ```bash
-   cd javascript-DOM-project
-   ```
-
-3. Open `index.html` in your browser, or use a local development server such as the Live Server extension in Visual Studio Code.
-
-Some integrations, including the contact form and secret message feature, require their respective external services to be configured.
-
 ## 📁 Project Structure
 
 ```text
@@ -65,8 +41,6 @@ javascript-DOM-project/
 ├── assets/
 └── README.md
 ```
-
-*Note: The directory tree above is illustrative. Adjust it if your current repository uses different filenames or folders.*
 
 ## 🔒 Security Considerations
 
