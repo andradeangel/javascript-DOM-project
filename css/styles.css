@@ -2453,7 +2453,7 @@ footer {
     display: flex;
     gap: 1rem;
     justify-content: end;
-    height: 0;
+    height: 4.5rem;
     overflow: hidden;
     transition: height .4s ease;
 }
