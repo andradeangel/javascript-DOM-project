@@ -645,8 +645,8 @@
               <form id="contact-form">
                 <label for="name">Your Name</label>
                 <label for="email">Email Address</label>
-                <input type="text" id="name" name="name" placeholder="👤 Homer Thompson" required autocomplete="name">
-                <input type="email" id="email" name="email" placeholder="✉ thompson@example.com" required autocomplete="email">
+                <input type="text" id="name" name="name" placeholder="👤 Homer Thompson" required autocomplete="name" maxlength="30">
+                <input type="email" id="email" name="email" placeholder="✉ thompson@example.com" required autocomplete="email" maxlength="50">
                 <label for="project" class="large">What can I help you with?</label>
                 <select id="project" class="large" name="project" required>
                   <option value="web-dev"> - Web Development</option>
@@ -657,7 +657,7 @@
                   <option value="other"> - Other</option>
                 </select>
                 <label for="textA" class="large">Message</label>
-                <textarea id="textA" class="large" name="message" placeholder="Tell me about your project or idea..." required></textarea>
+                <textarea id="textA" class="large" name="message" placeholder="Tell me about your project or idea..." required maxlength="200"></textarea>
                 <input class="large" type="submit" value="Send Message ➤" autocomplete="off">
               </form>
               <div class="exit-message">
@@ -746,7 +746,7 @@
           loading="lazy" decoding="async">
         <p class="ok">OK!</p>
         <form id="secretForm">
-          <input type="text" id="secretInput" placeholder="..." required autocomplete="off">
+          <input type="text" id="secretInput" placeholder="..." required autocomplete="off" maxlength="200">
           <input type="submit" value="Submit" autocomplete="off">
         </form>
       </div>

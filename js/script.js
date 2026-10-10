@@ -1,5 +1,9 @@
 emailjs.init({
-    publicKey: "C2ARKmwyDV96pbQUM"
+    publicKey: "C2ARKmwyDV96pbQUM",
+    blockHeadless: true,
+    limitRate: {
+    throttle: 15000
+  }
 });
 
 const form = document.querySelector("#contact-form");

@@ -583,7 +583,7 @@ let secretForm = document.getElementById("secretForm");
 let secretInput = document.getElementById("secretInput");
 let ok = document.querySelector(".ok");
 
-const WORKER_URL = "https://secretmsg.andradevelop.workers.dev/"; // pon tu URL real
+const WORKER_URL = "https://secretmsg.andradevelop.workers.dev/";
 
 secretButton.addEventListener("click", function (event) {
     if (secretForm.style.height === "0px" || secretForm.style.height === "") {
