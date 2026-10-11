@@ -589,13 +589,6 @@ const WORKER_URL = "https://secretmsg.andradevelop.workers.dev/";
 secretButton.addEventListener("click", function () {
     const isHidden = secretForm.classList.contains("hidden");
     secretForm.classList.toggle("hidden");
-
-    if (isHidden) {
-        requestAnimationFrame(() => {
-            secretInput.focus();
-            secretInput.click();
-        });
-    }
 });
 
 secretForm.addEventListener("click", function (event) {
@@ -639,11 +632,15 @@ secretForm.addEventListener("submit", async function (event) {
 //Layout del footer
 let footer = document.querySelector(".footer-container");
 let rrss = document.querySelector(".social-media");
-let textFooter = document.querySelector(".text-footer");
 let imgFooter = document.querySelector(".img-footer");
+let isMobileFooter = null;
 
 function reorderFooter() {
-    if (window.innerWidth <= 900) {
+    const shouldBeMobile = window.innerWidth <= 900;
+    if (shouldBeMobile === isMobileFooter) return;
+
+    isMobileFooter = shouldBeMobile;
+    if (shouldBeMobile) {
         rrss.before(imgFooter);
     } else {
         footer.append(imgFooter);
