@@ -587,7 +587,21 @@ const WORKER_URL = "https://secretmsg.andradevelop.workers.dev/";
 
 // Mostrar u ocultar el formulario
 secretButton.addEventListener("click", function () {
+    const isHidden = secretForm.classList.contains("hidden");
     secretForm.classList.toggle("hidden");
+
+    if (isHidden) {
+        requestAnimationFrame(() => {
+            secretInput.focus();
+            secretInput.click();
+        });
+    }
+});
+
+secretForm.addEventListener("click", function (event) {
+    if (event.target === secretForm) {
+        secretForm.classList.add("hidden");
+    }
 });
 
 // Enviar mensaje
@@ -751,7 +765,3 @@ document.querySelector("#year").textContent = new Date().getFullYear();
     };
 
 })();
-
-secretInput.addEventListener("blur", () => {
-    console.log("El input perdió el foco");
-});

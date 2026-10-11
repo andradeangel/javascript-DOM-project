@@ -24,6 +24,16 @@
     font-family: "Inconsolata", Arial, sans-serif;
 }
 
+input,
+textarea,
+select,
+input::placeholder,
+textarea::placeholder {
+    -webkit-touch-callout: default;
+    -webkit-user-select: text;
+    user-select: text;
+}
+
 html {
     background-color: var(--primaryColor);
     min-height: 100%;
