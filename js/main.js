@@ -577,7 +577,7 @@ cardsRedes.forEach(button => {
     });
 });
 
-//Funcionalidad para enviar mensaje secreto
+// Funcionalidad para enviar mensaje secreto
 let secretButton = document.querySelector(".secret-submit");
 let secretForm = document.getElementById("secretForm");
 let secretInput = document.getElementById("secretInput");
@@ -585,20 +585,15 @@ let ok = document.querySelector(".ok");
 
 const WORKER_URL = "https://secretmsg.andradevelop.workers.dev/";
 
-
-secretButton.addEventListener("click", function (event) {
-    if (secretForm.style.height === "0px" || secretForm.style.height === "") {
-        secretForm.classList.toggle("hidden");
-        // secretForm.style.height = "4.5rem";
-    } else {
-        secretForm.style.height = "0";
-    }
+// Mostrar u ocultar el formulario
+secretButton.addEventListener("click", function () {
+    secretForm.classList.toggle("hidden");
 });
 
+// Enviar mensaje
 secretForm.addEventListener("submit", async function (event) {
     event.preventDefault();
 
-    // Guarda el mensaje ANTES de hacer reset()
     const message = secretInput.value.trim();
     if (!message) return;
 
@@ -611,13 +606,17 @@ secretForm.addEventListener("submit", async function (event) {
 
         if (!res.ok) throw new Error("Error " + res.status);
 
-        // Solo si se envió bien: tu animación de siempre
-        secretForm.style.height = "0";
+        // Ocultar el formulario
+        secretForm.classList.add("hidden");
         secretForm.reset();
+
+        // Mostrar el mensaje de confirmación
         ok.style.height = "2rem";
+
         setTimeout(() => {
             ok.style.height = "0";
         }, 4000);
+
     } catch (err) {
         console.error("No se pudo enviar", err);
     }
