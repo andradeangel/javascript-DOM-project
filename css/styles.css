@@ -2440,6 +2440,10 @@ footer {
     color: var(--starColor);
 }
 
+.footer-container .text-footer .social-media a:last-child {
+    margin-right: 0;
+}
+
 .footer-container .img-footer {
     padding: 3rem 0 3rem 1rem;
     width: 40%;
